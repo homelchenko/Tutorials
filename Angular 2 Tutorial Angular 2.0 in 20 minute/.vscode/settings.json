@@ -4,5 +4,6 @@
         "**/.git": true,
         "**/*.js": { "when": "$(basename).ts"},
         "**/*.map": true        
-    }
+    },
+    "editor.fontSize": 16
 }
