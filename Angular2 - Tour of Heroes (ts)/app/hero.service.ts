@@ -11,6 +11,13 @@ export class HeroService
         // return this.getHeroesSlowly();
     }
     
+    getHero(id: number){
+        return Promise.resolve(HEROES)
+            .then(
+                heroes => heroes.filter(hero => hero.id == id)[0]
+            );
+    }
+    
     getHeroesSlowly()
     {
         return new Promise<Hero[]>(
