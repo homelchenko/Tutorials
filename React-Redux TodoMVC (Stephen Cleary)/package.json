@@ -5,7 +5,8 @@
     "todomvc-common": "^1.0.0"
   },
   "scripts": {
-      "build": "node_modules/.bin/webpack"
+      "build": "node_modules/.bin/webpack",
+      "watch": "node_modules/.bin/webpack --watch"
   },
   "devDependencies": {
       "babel": "^6.5.1",
