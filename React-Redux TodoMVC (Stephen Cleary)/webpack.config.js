@@ -1,4 +1,4 @@
-module.exports={
+module.exports = {
     entry: './js/main.jsx',
     output: {
         filename: './js/app.js'
@@ -20,6 +20,6 @@ module.exports={
     },
     devtool: 'inline-source-map',
     eslint: {
-        configFile: './eslintrc'
-    }
+        configFile: './.eslintrc'
+    }    
 }
