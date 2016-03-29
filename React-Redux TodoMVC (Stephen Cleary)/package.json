@@ -8,8 +8,8 @@
     "todomvc-common": "^1.0.0"
   },
   "scripts": {
-      "build": "node_modules/.bin/webpack",
-      "watch": "node_modules/.bin/webpack --watch",
+      "build": "node_modules/.bin/webpack --progress --colours",
+      "watch": "node_modules/.bin/webpack --progress --colours --watch",
       "serve": "node_modules/.bin/http-server -o",
       "start": "concurrent \"npm run watch\" \"npm run serve\" "
   },
