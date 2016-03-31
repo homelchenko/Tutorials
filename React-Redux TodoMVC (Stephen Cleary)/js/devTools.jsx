@@ -8,8 +8,8 @@ export default createDevTools(
     <DockMonitor
         changePositionKey="ctrl-j"
         defaultSize={0.2}
-    >
-        {'toggleVisibilityKey="ctrl-h"'}        
+        toggleVisibilityKey="ctrl-h"
+    >                
         <LogMonitor theme="bright" />
     </DockMonitor>
 )
