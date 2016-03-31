@@ -77,4 +77,8 @@ function Main(){
     );
 }
 
-window.onload = () => render(<Provider store={store}><Main/></Provider>, document.getElementById('app'));
+window.onload = () => render(
+    <Provider store={store}>
+        <Main/>
+    </Provider>,
+    document.getElementById('app'));
