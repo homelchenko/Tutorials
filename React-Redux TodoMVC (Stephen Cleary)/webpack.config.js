@@ -3,6 +3,14 @@ module.exports = {
     output: {
         filename: './js/app.js'
     },
+    resolve: {
+        extensions: [
+            '',
+            '.webpack.js',
+            '.web.js',
+            '.js',
+            '.jsx']  
+    },
     module: {
         loaders: [
             {
