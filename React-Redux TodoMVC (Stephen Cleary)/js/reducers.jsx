@@ -8,4 +8,4 @@ export default handleActions({
             completed: false,
             text: action.payload 
         }]
-})
+}, [])
