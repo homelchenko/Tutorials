@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Newtonsoft.Json.Linq;
 
-
 namespace GitHub_Authorization
 {
     public class Startup
