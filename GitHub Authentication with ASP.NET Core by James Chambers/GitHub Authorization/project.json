@@ -26,5 +26,6 @@
   "publishExclude": [
     "**.user",
     "**.vspscc"
-  ]
+  ],
+  "userSecretsId": "aspnet5-GitHub Authorization-20160428025436"
 }
