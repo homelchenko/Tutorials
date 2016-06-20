@@ -6,9 +6,9 @@ import { Provider, connect } from 'react-redux';
 
 import store from './store';
 import TodoActions from './actions/todoActions';
+import Todos from './components/todos';
 
 import DevTools from './devTools';
-
 
 function MainImpl({dispatch}){
     return (
@@ -21,42 +21,7 @@ function MainImpl({dispatch}){
                     placeholder="What needs to be done?"
                 />
             </header>
-            {/*<!-- This section should be hidden by default and shown when there are todos --> */}
-            <section className="main">
-                <input className="toggle-all"
-                    type="checkbox"
-                />
-                <label htmlFor="toggle-all">{'Mark all as complete'}</label>
-                <ul className="todo-list">
-                    {/*<!-- These are here just to show the structure of the list items -->*/}
-                    {/*<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->*/}
-                    <li className="completed">
-                        <div className="view">
-                            <input checked
-                                className="toggle"
-                                type="checkbox"
-                            />
-                            <label>{'Taste JavaScript'}</label>
-                            <button className="destroy"></button>
-                        </div>
-                        <input className="edit"
-                            value="Create a TodoMVC template"
-                        />
-                    </li>
-                    <li>
-                        <div className="view">
-                            <input className="toggle"
-                                type="checkbox"
-                            />
-                            <label>{'Buy a unicorn'}</label>
-                            <button className="destroy"></button>
-                        </div>
-                        <input className="edit"
-                            value="Rule the web"
-                        />
-                    </li>
-                </ul>
-            </section>
+            <Todos />
             {/*<!-- This footer should hidden by default and shown when there are todos -->*/}
             <footer className="footer">
                 {/*<!-- This should be `0 items left` by default -->*/}
