@@ -11,7 +11,7 @@ import Footer from './components/footer';
 
 import DevTools from './devTools';
 
-export default function Main(){
+export default function TodoApp(){
     return (
         <section className="todoapp">
             <Header />
@@ -25,7 +25,7 @@ window.onload = () => {
     const root =(
         <Provider store={store}>
             <div>
-                <Main/>
+                <TodoApp/>
                 <DevTools />
             </div>
         </Provider>
