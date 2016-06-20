@@ -5,23 +5,16 @@ import { render } from 'react-dom';
 import { Provider, connect } from 'react-redux';
 
 import store from './store';
-import TodoActions from './actions/todoActions';
+import Header from './components/header';
 import Todos from './components/todos';
 import Footer from './components/footer';
 
 import DevTools from './devTools';
 
-function MainImpl({dispatch}){
+function MainImpl(){
     return (
         <section className="todoapp">
-            <header className="header">
-                <h1>{'todos'}</h1>
-                <input autodFocus
-                    className="new-todo"
-                    onBlur={e => dispatch(TodoActions.add(e.target.value))}
-                    placeholder="What needs to be done?"
-                />
-            </header>
+            <Header />
             <Todos />
             <Footer />
         </section>
