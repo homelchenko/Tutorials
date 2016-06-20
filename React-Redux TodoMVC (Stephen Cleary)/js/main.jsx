@@ -94,7 +94,7 @@ window.onload = () => {
         </Provider>
     );
     
-    render(
-        root,
-        document.getElementById('app'));    
+render(
+    root,
+    document.getElementById('app'));    
 }
