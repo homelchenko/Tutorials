@@ -2,7 +2,7 @@ import 'babel-polyfill';
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 
 import store from './store';
 import Header from './components/header';
@@ -11,7 +11,7 @@ import Footer from './components/footer';
 
 import DevTools from './devTools';
 
-function MainImpl(){
+export default function Main(){
     return (
         <section className="todoapp">
             <Header />
@@ -20,8 +20,6 @@ function MainImpl(){
         </section>
     );
 }
-
-const Main = connect()(MainImpl);
 
 window.onload = () => {
     const root =(
