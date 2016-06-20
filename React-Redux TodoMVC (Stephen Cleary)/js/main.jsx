@@ -97,5 +97,4 @@ window.onload = () => {
     render(
         root,
         document.getElementById('app'));    
-} 
-
+}
