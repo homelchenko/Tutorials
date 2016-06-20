@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Todos(){
+export default function Main(){
     return (
         <section className="main">
             <input className="toggle-all"

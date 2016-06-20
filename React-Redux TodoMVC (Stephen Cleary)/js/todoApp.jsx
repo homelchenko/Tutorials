@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 import Header from './components/header';
-import Todos from './components/todos';
+import Main from './components/main';
 import Footer from './components/footer';
 
 import DevTools from './devTools';
@@ -15,7 +15,7 @@ export default function TodoApp(){
     return (
         <section className="todoapp">
             <Header />
-            <Todos />
+            <Main />
             <Footer />
         </section>
     );
