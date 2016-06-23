@@ -71,6 +71,32 @@ gulp.task("watch", ["default"], function(){
     gulp.watch("dist/*.js").on('change', browserSync.reload);
 });
 
+var tsTestProject = tsc.createProject("tsconfig.json");
+
+gulp.task("build-test", function(){
+    return gulp.src([
+        "test/**/*.ts",
+        "typings/maid.d.ts/",
+        "source/interfaces/interfaces.d.ts"
+    ])
+    .pipe(tsc(tsTestProject))
+    .js.pipe(gulp.dest("test/"));
+});
+
+gulp.task("istanbul:hook", function(){
+    return gulp.src(['source/**/*.js'])
+        // Covering files
+        .pipe(istanbul())
+        // Force 'require' to return covered files
+        .pipe(istanbul.hookRequire());
+});
+
+gulp.task("test", ["istanbul:hook"], function(){
+    return gulp.src('test/**/*.test.js')
+        .pipe(mocha({ ui: 'bdd'}))
+        .pipe(istanbul.writeReports());
+});
+
 gulp.task("default", function(cb) {
-    runSequence("lint", "build", "bundle", cb);
+    runSequence("lint", "build-app", "bundle", "test", cb);
 });
