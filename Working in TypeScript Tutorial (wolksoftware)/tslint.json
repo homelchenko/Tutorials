@@ -57,7 +57,7 @@
         "avoid-escape"
     ],
     "radix": true,
-    "semicolon": true,
+    "semicolon": [true],
     "trailing-comma": [
         true,
         {
