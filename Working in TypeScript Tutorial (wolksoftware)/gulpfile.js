@@ -70,4 +70,3 @@ gulp.task("watch", ["default"], function(){
 
     gulp.watch("dist/*.js").on('change', browserSync.reload);
 });
-
