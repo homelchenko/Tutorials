@@ -1,6 +1,4 @@
 node_modules
-coverage
-source/**/*.js
-test/**/*.js
+app/css
 dist
 *.js.map
