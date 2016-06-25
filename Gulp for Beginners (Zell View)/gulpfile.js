@@ -6,13 +6,9 @@ gulp.task('sass', function () {
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('app/css'))
-        .pipe(broswerSync.reload({
+        .pipe(browserSync.reload({
             stream: true
         }));
-});
-
-gulp.task('watch', function () {
-    gulp.watch('app/scss/**/*.scss', ['sass']);
 });
 
 gulp.task('browserSync', function () {
@@ -21,4 +17,8 @@ gulp.task('browserSync', function () {
             baseDir: 'app'
         }
     });
+});
+
+gulp.task('watch', ['browserSync', 'sass'], function () {
+    gulp.watch('app/scss/**/*.scss', ['sass']);
 });
