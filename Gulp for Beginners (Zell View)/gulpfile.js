@@ -4,6 +4,7 @@ var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
 var gulpif  = require('gulp-if');
 var uglify = require('gulp-uglify');
+var cssnano = require('gulp-cssnano');
 
 gulp.task('sass', function () {
     return gulp.src('app/scss/**/*.scss')
@@ -33,5 +34,6 @@ gulp.task('useref', function () {
     return gulp.src('app/*html')
         .pipe(useref())
         .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.css', cssnano()))
         .pipe(gulp.dest('dist'));
 });
