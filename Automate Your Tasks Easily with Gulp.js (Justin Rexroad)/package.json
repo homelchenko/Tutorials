@@ -1,0 +1,23 @@
+{
+  "name": "automate_your_tasks_easily_with_gulp.js_justin_rexroad",
+  "version": "1.0.0",
+  "description": "Another Gulp.js tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homelchenko/Tutorials.git"
+  },
+  "keywords": [
+    "tutorial",
+    "gulp"
+  ],
+  "author": "Justin Rexroad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/homelchenko/Tutorials/issues"
+  },
+  "homepage": "https://github.com/homelchenko/Tutorials#readme"
+}
