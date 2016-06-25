@@ -11,6 +11,4 @@ gulp.task('watch', function () {
     gulp.watch('sources/javascript/**/*.js', ['jshint']);
 });
 
-gulp.task('default', function () {
-    // NOP
-});
+gulp.task('default', ['watch']);
