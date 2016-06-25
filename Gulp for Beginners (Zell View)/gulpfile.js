@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
+var gulpif  = require('gulp-if');
+var uglify = require('gulp-uglify');
 
 gulp.task('sass', function () {
     return gulp.src('app/scss/**/*.scss')
@@ -30,5 +32,6 @@ gulp.task('watch', ['browserSync', 'sass'], function () {
 gulp.task('useref', function () {
     return gulp.src('app/*html')
         .pipe(useref())
+        .pipe(gulpif('*.js', uglify()))
         .pipe(gulp.dest('dist'));
 });
