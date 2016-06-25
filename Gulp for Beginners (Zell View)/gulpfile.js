@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
+var del = require('del');
 
 gulp.task('sass', function () {
     return gulp.src('app/scss/**/*.scss')
@@ -49,4 +50,8 @@ gulp.task('images', function () {
 gulp.task('fonts', function () {
     return gulp.src('app/fonts/**/*')
         .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('clean:dist', function () {
+    return del.sync('dist');
 });
