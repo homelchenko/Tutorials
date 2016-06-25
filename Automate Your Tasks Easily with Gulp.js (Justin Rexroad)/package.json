@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/homelchenko/Tutorials#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "jshint-stylish": "^2.2.0"
   }
 }
