@@ -6,6 +6,7 @@ var gulpif  = require('gulp-if');
 var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
+var cache = require('gulp-cache');
 
 gulp.task('sass', function () {
     return gulp.src('app/scss/**/*.scss')
@@ -41,6 +42,6 @@ gulp.task('useref', function () {
 
 gulp.task('images', function () {
     return gulp.src('app/images/**/*.+(png|jpg|giv|svg)')
-        .pipe(imagemin())
+        .pipe(cache(imagemin()))
         .pipe(gulp.dest('dist/images'));
 });
