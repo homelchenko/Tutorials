@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/grunt": "^0.4.13-alpha",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1"
   }
