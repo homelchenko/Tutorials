@@ -33,6 +33,19 @@ module.exports = function (grunt) {
             }
         },
 
+        sass: {
+            options: {
+                sourceMap: true
+            },
+
+            dist: {
+                files: {
+                    'dist/css/print.css': 'app/scss/print.scss',
+                    'dist/css/styles.css': 'app/scss/styles.scss',                    
+                }
+            }
+        },
+
         watch: {
             scripts: {
                 files: ['app/js/**/*.js'],
@@ -48,9 +61,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    
+    grunt.loadNpmTasks('grunt-sass');
+
     grunt.loadNpmTasks('grunt-contrib-watch');
     
     // 4. Where we tell Grunt what to do when we type "grunt' into the termincal
-    grunt.registerTask('default', ['concat', 'uglify', 'imagemin']);
+    grunt.registerTask('default', ['sass', 'concat', 'uglify', 'imagemin']);
 };
