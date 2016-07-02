@@ -35,6 +35,18 @@ module.exports = function (grunt) {
                 },
             },
         },
+
+        cssmin: {
+            options: {
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n',
+            },
+
+            build: {
+                files: {
+                    'dist/css/style.min.css': 'src/css/style.css',
+                }
+            },
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
