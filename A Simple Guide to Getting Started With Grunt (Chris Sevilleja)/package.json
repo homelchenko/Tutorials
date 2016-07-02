@@ -1,0 +1,13 @@
+{
+  "name": "a_simple_guide_to_getting_started_with_grunt_by_chris_sevilleja",
+  "version": "1.0.0",
+  "description": "Gulp Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}
