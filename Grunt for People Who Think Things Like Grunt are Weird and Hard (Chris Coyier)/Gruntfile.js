@@ -6,6 +6,13 @@ module.exports = function (grunt) {
 
         concat: {
             // 2. Configuration for concatinating files goes here
+            dist: {
+                src: [
+                    'js/libs/*.js',
+                    'js/*.js'
+                ],
+                dest: 'dist/js/production.js',
+            }
         }
     });
 
