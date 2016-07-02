@@ -53,6 +53,14 @@ module.exports = function (grunt) {
                 options: {
                     spawn: true
                 }
+            },
+
+            css: {
+                files: ['app/scss/**/*.scss'],
+                tasks: ['sass'],
+                options: {
+                    spawn: true
+                }                
             }
         },
     });
