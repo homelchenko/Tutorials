@@ -1,0 +1,13 @@
+{
+  "name": "grunt_for_people_who_think_by_chris_coyier",
+  "version": "1.0.0",
+  "description": "Grunt Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}
