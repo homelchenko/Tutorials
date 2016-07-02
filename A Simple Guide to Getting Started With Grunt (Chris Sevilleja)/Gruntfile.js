@@ -27,6 +27,14 @@ module.exports = function (grunt) {
                 },
             },
         },
+
+        less: {
+            build: {
+                files: {
+                    'dist/css/pretty.css': 'src/css/pretty.less',
+                },
+            },
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
