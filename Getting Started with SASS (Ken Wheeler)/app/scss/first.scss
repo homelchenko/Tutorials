@@ -10,7 +10,15 @@ body {
     font-size: $fontDiff;    
 }
 
-p {
-    color: $primaryColor;
-    font-size: $firstValue;
+.cool-div {
+    background: darken($primaryColor, 35%);
 }
+
+.another-cool-div {
+    background: desaturate($primaryColor, 30%)
+}
+
+p {
+     font-size: $firstValue;
+}
+
