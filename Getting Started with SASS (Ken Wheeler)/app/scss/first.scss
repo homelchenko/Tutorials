@@ -1,9 +1,10 @@
 $primaryColor: #eeffcc;
 
 body {
-    $primaryColor: #ccc;
+    $primaryColor: #ccc !global;
     background: $primaryColor;
 }
 
 p {
-    color: $primaryColor;}
+    color: $primaryColor;
+}
