@@ -13,3 +13,13 @@
 
     border: 4px solid #e74c3c;
 }
+
+%input-style {
+    font-style: 14px;
+}
+
+input {
+    @extend %input-style;
+
+    color: black;
+}
