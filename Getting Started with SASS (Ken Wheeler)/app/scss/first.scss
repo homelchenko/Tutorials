@@ -1,8 +1,12 @@
 $primaryColor: #eeffcc;
 
+$firstValue: 24px !default;
+
+$firstValue: 62.5%;
+
 body {
-    $primaryColor: #ccc !global;
     background: $primaryColor;
+    
 }
 
 p {
