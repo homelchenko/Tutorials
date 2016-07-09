@@ -2,6 +2,10 @@ $container-width: 100%;
 
 .container {
     width: $container-width;
+
+    h1 {
+        font-size: 4px;
+    }
 }
 
 .col-4 {
