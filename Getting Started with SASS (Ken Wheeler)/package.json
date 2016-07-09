@@ -22,6 +22,7 @@
   "homepage": "https://github.com/homelchenko/Tutorials#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-sass": "^2.3.2"
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemap": "^1.0.1"
   }
 }
