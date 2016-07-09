@@ -1,4 +1,5 @@
 $primaryColor: #eeffcc;
+$fontDiff: 14px/3;
 
 $firstValue: 24px !default;
 
@@ -6,7 +7,7 @@ $firstValue: 62.5%;
 
 body {
     background: $primaryColor;
-    
+    font-size: $fontDiff;    
 }
 
 p {
