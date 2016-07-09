@@ -1,5 +1,9 @@
 $primaryColor: #eeffcc;
 
 body {
+    $primaryColor: #ccc;
     background: $primaryColor;
 }
+
+p {
+    color: $primaryColor;}
