@@ -1,0 +1,23 @@
+{
+  "name": "getting_started_with_sass_by_ken_wheeler",
+  "version": "1.0.0",
+  "description": "Tutorial: getting started with SASS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homelchenko/Tutorials.git"
+  },
+  "keywords": [
+    "SASS",
+    "tutorials"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/homelchenko/Tutorials/issues"
+  },
+  "homepage": "https://github.com/homelchenko/Tutorials#readme"
+}
