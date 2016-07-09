@@ -9,3 +9,13 @@ a.myAnchor {
         color: purple;
     }
 }
+
+.first-component {
+    background: red;
+    .text { font-size: 1.4rem; }
+    .button { font-size: 1.7rem; }
+    @at-root .second-component {
+        .text { font-size: 1.2rem }
+        .button { font-size: 1.4rem }
+    }    
+}
