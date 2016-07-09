@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/homelchenko/Tutorials/issues"
   },
-  "homepage": "https://github.com/homelchenko/Tutorials#readme"
+  "homepage": "https://github.com/homelchenko/Tutorials#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
