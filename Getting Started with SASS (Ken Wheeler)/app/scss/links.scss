@@ -1,5 +1,7 @@
+@import "first";
+
 a.myAnchor {
-    color: blue;
+    color:$primaryColor;
     
     &:hover {
         text-decoration: underline;
