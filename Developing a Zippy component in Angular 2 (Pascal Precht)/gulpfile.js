@@ -8,6 +8,7 @@ var del = require('del');
 
 var PATHS = {
     src: 'src/**/*.ts',
+    typings: 'typings/**/*.ts',
     html: 'src/**/*.html',
     dist: 'dist',
 };
@@ -21,16 +22,19 @@ gulp.task('copy', function(){
         .pipe(gulp.dest(PATHS.dist))
 });
 
-gulp.task('tsc', ['copy'], function () {
+gulp.task('tsc', function () {
     var tscConfig = require('./tsconfig.json');
     var tsResult = gulp
-        .src([PATHS.src, 'node_modules/angular2/typings/browser.d.ts'])
+        .src([
+            PATHS.src,
+            PATHS.typings,
+            'node_modules/angular2/typings/browser.d.ts'])
         .pipe(tsc(tscConfig.compilerOptions));
 
     return tsResult.js.pipe(gulp.dest(PATHS.dist));
 });
 
-gulp.task('play', ['tsc'], function () {
+gulp.task('play', ['copy', 'tsc'], function () {
     var port = 9000, app;
 
     gulp.watch(PATHS.src, ['tsc']);
