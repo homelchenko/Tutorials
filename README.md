@@ -12,5 +12,6 @@ This is the place for all the tutorials I plan to work through
 8. GitHub Authentication with ASP.NET Core (James Chambers)
 9. Grunt for People Who Think Things Like Grunt are Weird and Hard (Chris Coyier)
 10. Gulp for Beginners (Zell View)
-11. React-Redux TodoMVC (Stephen Cleary)
-12. Working in TypeScript Tutorial (wolksoftware)
+11. Introduction to Webpack (Ryan Christiani)
+13. React-Redux TodoMVC (Stephen Cleary)
+14. Working in TypeScript Tutorial (wolksoftware)
