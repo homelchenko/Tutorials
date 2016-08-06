@@ -38,6 +38,7 @@ gulp.task('play', ['copy', 'tsc'], function () {
     var port = 9000, app;
 
     gulp.watch(PATHS.src, ['tsc']);
+    gulp.watch(PATHS.html, ['copy']);
 
     app = connect().use(serveStatic(__dirname));
     http.createServer(app).listen(port, function () {
