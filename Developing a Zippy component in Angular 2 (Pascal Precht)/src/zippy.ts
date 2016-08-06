@@ -6,5 +6,9 @@ import {Component} from 'angular2/core';
     templateUrl: 'zippy.html'
 })
 export class ZippyComponent {
+    visible : boolean = false;
 
+    toggle() {
+        this.visible = !this.visible;
+    }    
 }
