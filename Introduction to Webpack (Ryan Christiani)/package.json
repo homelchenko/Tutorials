@@ -1,0 +1,23 @@
+{
+  "name": "introduction_to_webpack_ryan_christiani",
+  "version": "1.0.0",
+  "description": "Introduction to Webpack by Ryan Christiani",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homelchenko/Tutorials.git"
+  },
+  "keywords": [
+    "tutorial",
+    "webpack"
+  ],
+  "author": "Hennadii Omelchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/homelchenko/Tutorials/issues"
+  },
+  "homepage": "https://github.com/homelchenko/Tutorials#readme"
+}
