@@ -1,6 +1,6 @@
 <div class="zippy">
     <div class="zippy__title" (click)="toggle()">
-        &#9660; Details
+        {{ visible ? '&#9660;' : '&#9650;' }} Details
     </div>
     <div class="zippy__content" [hidden]="!visible">
         This is some content.
