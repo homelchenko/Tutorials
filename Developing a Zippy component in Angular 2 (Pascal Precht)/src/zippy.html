@@ -3,6 +3,6 @@
         {{ visible ? '&#9660;' : '&#9650;' }} {{ title }}
     </div>
     <div class="zippy__content" [hidden]="!visible">
-        This is some content.
+        <ng-content></ng-content>
     </div>
 </div>
