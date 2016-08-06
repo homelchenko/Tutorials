@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/homelchenko/Tutorials/issues"
   },
-  "homepage": "https://github.com/homelchenko/Tutorials#readme"
+  "homepage": "https://github.com/homelchenko/Tutorials#readme",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "webpack": "^1.13.1"
+  }
 }
