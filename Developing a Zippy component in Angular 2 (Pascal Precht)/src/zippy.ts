@@ -2,9 +2,9 @@ import {Component} from 'angular2/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'zippy',
+    selector: 'my-zippy',
     templateUrl: 'zippy.html'
 })
-export class Zippy {
+export class ZippyComponent {
 
 }
