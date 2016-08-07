@@ -19,7 +19,7 @@ import {HeroDetailComponent} from "./hero-detail.component";
     `,
     styleUrls: [
         './app/app.component.css'
-    ]
+    ],
     directives: [
         ROUTER_DIRECTIVES
     ],
