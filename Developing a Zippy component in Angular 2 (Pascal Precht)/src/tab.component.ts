@@ -1,6 +1,6 @@
 import { Component, Input } from 'angular2/core';
 
-import { Tabs } from './Tabs';
+import { TabsComponent } from './tabs.Component';
 
 @Component({
     selector: 'tab',
@@ -10,12 +10,12 @@ import { Tabs } from './Tabs';
         </div>
     `
 })
-export class Tab {
+export class TabComponent {
     @Input() tabTitle;
 
     active = false;
 
-    constructor(tabs: Tabs) {
+    constructor(tabs: TabsComponent) {
         tabs.addTab(this)
     }
 }

@@ -1,6 +1,6 @@
 import { Component } from 'angular2/core';
 
-import { Tab } from './Tab';
+import { TabComponent } from './tab.Component';
 
 @Component({
     selector: 'tabs',
@@ -13,16 +13,16 @@ import { Tab } from './Tab';
         </ul>
     `
 })
-export class Tabs {
-    tabs : Tab[] = [];
+export class TabsComponent {
+    tabs : TabComponent[] = [];
 
-    addTab(tab : Tab){
+    addTab(tab : TabComponent){
         if (this.tabs.length == 0)
             tab.active = true;
         this.tabs.push(tab);
     }
 
-    selectTab(tab: Tab) {
+    selectTab(tab: TabComponent) {
         this.tabs.forEach((tab) => {
             tab.active = false;
         });
