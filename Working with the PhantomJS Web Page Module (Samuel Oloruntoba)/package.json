@@ -1,0 +1,24 @@
+{
+  "name": "working-with-the-phantomjs-web-page-module",
+  "version": "1.0.0",
+  "description": "Working with the PhantomJS Web Page Module - Screenshot Server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homelchenko/Tutorials.git"
+  },
+  "keywords": [
+    "tutorial",
+    "nodejs",
+    "phantomjs"
+  ],
+  "author": "Hennadii Omelchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/homelchenko/Tutorials/issues"
+  },
+  "homepage": "https://github.com/homelchenko/Tutorials#readme"
+}
