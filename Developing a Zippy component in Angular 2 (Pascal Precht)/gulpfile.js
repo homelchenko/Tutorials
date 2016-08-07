@@ -10,6 +10,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var PATHS = {
     src: 'src/**/*.ts',
     typings: 'typings/**/*.ts',
+    bomTypings: 'node_modules/angular2/typings/browser.d.ts',
     html: 'src/**/*.html',
     dist: 'dist',
 };
@@ -30,7 +31,7 @@ gulp.task('tsc', function () {
         .src([
             PATHS.src,
             PATHS.typings,
-            'node_modules/angular2/typings/browser.d.ts'])
+            PATHS.bomTypings])
         .pipe(sourcemaps.init())
             .pipe(tsc(tscConfig.compilerOptions))
             .js.pipe(gulp.dest(PATHS.dist))                
