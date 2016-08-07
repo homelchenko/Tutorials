@@ -5,6 +5,7 @@ var connect = require('connect');
 var serveStatic = require('serve-static');
 var open = require('open');
 var del = require('del');
+var sourcemaps = require('gulp-sourcemaps');
 
 var PATHS = {
     src: 'src/**/*.ts',
@@ -24,14 +25,17 @@ gulp.task('copy', function(){
 
 gulp.task('tsc', function () {
     var tscConfig = require('./tsconfig.json');
-    var tsResult = gulp
+    
+    return gulp
         .src([
             PATHS.src,
             PATHS.typings,
             'node_modules/angular2/typings/browser.d.ts'])
-        .pipe(tsc(tscConfig.compilerOptions));
-
-    return tsResult.js.pipe(gulp.dest(PATHS.dist));
+        .pipe(sourcemaps.init())
+            .pipe(tsc(tscConfig.compilerOptions))
+            .js.pipe(gulp.dest(PATHS.dist))                
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(PATHS.dist));
 });
 
 gulp.task('play', ['copy', 'tsc'], function () {
