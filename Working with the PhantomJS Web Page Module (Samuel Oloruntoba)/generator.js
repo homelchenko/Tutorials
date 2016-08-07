@@ -2,7 +2,7 @@ var args = require('system').args;
 var page = require('webpage').create();
 
 var url = args[1];
-var svae = args[2];
+var save = args[2];
 var width = args[3];
 var height = args[4];
 
