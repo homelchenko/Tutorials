@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/homelchenko/Tutorials/issues"
   },
-  "homepage": "https://github.com/homelchenko/Tutorials#readme"
+  "homepage": "https://github.com/homelchenko/Tutorials#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "md5": "^2.1.0",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0",
+    "valid-url": "^1.0.9"
+  }
 }
