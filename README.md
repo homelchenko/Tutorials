@@ -15,3 +15,4 @@ This is the place for all the tutorials I plan to work through
 11. Introduction to Webpack (Ryan Christiani)
 13. React-Redux TodoMVC (Stephen Cleary)
 14. Working in TypeScript Tutorial (wolksoftware)
+15. Working with the PhantomJS Web Page Module (Samuel Oloruntoba)
