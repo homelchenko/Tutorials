@@ -7,19 +7,18 @@ import { Hero } from './hero';
 @Injectable()
 export class HeroService
 {
-    getHeroes(){
+    getHeroes() {
         return Promise.resolve(HEROES);
         // return this.getHeroesSlowly();
     }
     
-    getHero(id: number){
-        return Promise.resolve(HEROES)
-            .then(
-                heroes => heroes.filter(hero => hero.id == id)[0]
+    getHero(id: number) {
+        return this.getHeroes()
+            .then(heroes => heroes.find(hero => hero.id === id)
             );
     }
     
-    getHeroesSlowly()
+    getHeroesSlowly ()
     {
         return new Promise<Hero[]>(
             resolve =>

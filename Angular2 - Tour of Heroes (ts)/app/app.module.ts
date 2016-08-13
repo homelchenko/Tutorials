@@ -4,7 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { routing } from './app.routing';
+
 import { HeroesComponent } from './heroes.component';
+import { DashboardComponent } from './dashboard.component';
+import { HeroDetailComponent } from './hero-detail.component';
 
 import { HeroService } from './hero.service';
 
@@ -12,11 +16,14 @@ import { HeroService } from './hero.service';
     imports: [
         BrowserModule,
         FormsModule,
+        routing,
         HttpModule
     ],
     declarations: [
         AppComponent,
-        HeroesComponent
+        HeroesComponent,
+        DashboardComponent,
+        HeroDetailComponent
     ],
     providers: [
         HeroService
