@@ -11,7 +11,9 @@ import { HeroDetailComponent } from './hero-detail.component';
     styleUrls: [
         './app/heroes.component.css'
     ],
-    directives: [HeroDetailComponent],
+    directives: [
+        HeroDetailComponent
+    ],
 })
 export class HeroesComponent implements OnInit {
     public heroes;
