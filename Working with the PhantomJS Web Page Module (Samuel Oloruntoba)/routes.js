@@ -23,7 +23,7 @@ router.get('/snap', function(req, res, next){
             website,
             savePath,
             width,
-            1024]
+            1]
             .join(' ');
         var exec = require('child_process').exec;
 
