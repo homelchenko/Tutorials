@@ -18,6 +18,7 @@ import { HeroDetailComponent } from './hero-detail.component';
 export class HeroesComponent implements OnInit {
     public heroes;
     selectedHero: Hero;
+    private addingHero: boolean;
 
     constructor (
         private heroService: HeroService,
@@ -36,6 +37,30 @@ export class HeroesComponent implements OnInit {
         this.selectedHero = hero;
     }
     
+    addHero(): void {
+        this.addingHero = true;
+        this.selectedHero = null;
+    }
+
+    close(savedHero: Hero): void {
+        this.addingHero = false;
+        if(savedHero) {
+            this.getHeroes();
+        }
+    }
+
+    deleteHero(hero: Hero, event: any): void {
+        event.stopPropagation();
+        this.heroService
+            .delete(hero)
+            .then(res => {
+                this.heroes = this.heroes.filter(h => h !== hero);
+                if (this.selectedHero === hero) {
+                    this.selectedHero = null;
+                }
+            })
+    }
+
     gotoDetail() {
         let link = ['/detail', this.selectedHero.id];
         
