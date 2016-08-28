@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Taking Advantage of Observables in Angular 2 (Thoughtrams)",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "typings install"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/homelchenko/Tutorials.git"
@@ -27,11 +29,13 @@
     "@angular/forms": "^0.3.0",
     "@angular/http": "^2.0.0-rc.5",
     "@angular/platform-browser": "^2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
     "rxjs": "^5.0.0-beta.6",
     "zone.js": "^0.6.17"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-typescript": "^2.13.6"
+    "gulp-typescript": "^2.13.6",
+    "typings": "^1.3.3"
   }
 }
