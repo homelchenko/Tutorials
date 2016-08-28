@@ -1,0 +1,25 @@
+{
+  "name": "taking_advantage_of_observables_in_angular2_thoughtrams",
+  "version": "1.0.0",
+  "description": "Taking Advantage of Observables in Angular 2 (Thoughtrams)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homelchenko/Tutorials.git"
+  },
+  "keywords": [
+    "Angular2",
+    "tutorial",
+    "rxjs",
+    "observables"
+  ],
+  "author": "Hennadii Omelchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/homelchenko/Tutorials/issues"
+  },
+  "homepage": "https://github.com/homelchenko/Tutorials#readme"
+}
