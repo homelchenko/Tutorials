@@ -14,6 +14,7 @@ This is the place for all the tutorials I plan to work through
 10. Gulp for Beginners (Zell View)
 11. Taking Advantage of Observables in Angular 2 (Thoughtrams)
 12. Introduction to Webpack (Ryan Christiani)
-13. React-Redux TodoMVC (Stephen Cleary)
-14. Working in TypeScript Tutorial (wolksoftware)
-15. Working with the PhantomJS Web Page Module (Samuel Oloruntoba)
+13. Node.js Applications with VS Code
+14. React-Redux TodoMVC (Stephen Cleary)
+15. Working in TypeScript Tutorial (wolksoftware)
+16. Working with the PhantomJS Web Page Module (Samuel Oloruntoba)
