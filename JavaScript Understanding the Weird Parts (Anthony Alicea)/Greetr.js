@@ -29,6 +29,23 @@
 
     Greetr.prototype = {
 
+        fullName: function() {
+            return this.firstName + ' ' + this.lastName;
+        },
+
+        validate: function() {
+            if (supportedLanguages.indexOf(this.language) === -1) {
+                throw 'Invalid language';
+            }
+        },
+
+        greeting: function() {
+            return greetings[this.language] + ' ' + this.firstName + '!';
+        },
+
+        formalGreeting: function() {
+            return formalGreetings[this.language] + ' ' + this.fullName() + '!';
+        }
     };
 
     Greetr.init.prototype = Greetr.prototype;
