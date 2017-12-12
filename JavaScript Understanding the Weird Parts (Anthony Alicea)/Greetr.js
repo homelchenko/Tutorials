@@ -45,6 +45,16 @@
 
         formalGreeting: function() {
             return formalGreetings[this.language] + ' ' + this.fullName() + '!';
+        },
+
+        greet: function(formal) {
+            var msg;
+
+            if (console) {
+                console.log(msg);
+            }
+
+            return this;
         }
     };
 
