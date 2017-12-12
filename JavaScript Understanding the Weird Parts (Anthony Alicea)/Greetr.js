@@ -4,6 +4,18 @@
         return new G$.init(firstName, lastName, language);
     }
 
+    var supportedLanguages = ['en', 'es'];
+
+    var greetings = {
+        en: 'Hello',
+        es: 'Hola'
+    }
+
+    var formalGreetings = {
+        en: 'Greetings',
+        es: 'Saludos'
+    }
+
     Greetr.init = function(firstName, lastName, language) {
         this.firstName = firstName || '';
         this.lastName = lastName || '';
