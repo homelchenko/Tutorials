@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch in Chrome",
             "windows": {
-                "command": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+                "command": "chrome.exe",
                 "runtimeArgs": [
                     "${cwd}\\index.html"
                 ]
