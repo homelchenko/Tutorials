@@ -1,4 +1,7 @@
 var g = G$('John', 'Dow');
-var h = Greetr('Mary', 'Hutson', 'es');
+
+g.greet().setLang('en').greet(true);
+
+g.HTMLGreet('#greeting');
 
 console.log(g, h);

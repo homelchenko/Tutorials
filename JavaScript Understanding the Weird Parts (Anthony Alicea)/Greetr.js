@@ -78,7 +78,30 @@
             this.validate();
 
             return this;
+        },
+
+        HTMLGreet(selector, formal) {
+            if (!$) {
+                throw 'No jQuery available';
+            }
+
+            if (!selector) {
+                throw 'No Selector provided';
+            }
+
+            var greeting;
+            if (formal) {
+                greeting = this.formalGreeting();
+            }
+            else {
+                greeting = this.greeting();
+            }
+
+            $(selector).text(greeting);
+
+            return this;
         }
+
     };
 
     Greetr.init.prototype = Greetr.prototype;
