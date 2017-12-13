@@ -69,6 +69,8 @@
             this.language = lang;
 
             this.validate();
+
+            return this;
         }
     };
 
