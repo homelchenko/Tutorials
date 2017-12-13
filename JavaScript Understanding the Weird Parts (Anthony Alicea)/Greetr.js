@@ -50,6 +50,13 @@
         greet: function(formal) {
             var msg;
 
+            if (formal) {
+                msg = this.formalGreeting();
+            }
+            else {
+                msg = this.greeting();
+            }
+
             if (console) {
                 console.log(msg);
             }
