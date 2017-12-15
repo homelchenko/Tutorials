@@ -5,12 +5,16 @@
 <script type="text/babel">
     const rootElement = document.getElementById('root');
 
-    const content = 'Hello World';
+    const Message = (props) => <div>{props.children}</div>
+
     const props = {
         className: 'container'
     }
 
-    const element = <div {...props} >{content}</div>
+    const element = <div {...props} >
+        <Message>Hello World</Message>
+        <Message>Goodbye World</Message>
+    </div>
 
     ReactDOM.render(element, rootElement);
 </script>
