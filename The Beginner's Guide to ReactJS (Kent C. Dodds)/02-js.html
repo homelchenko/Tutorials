@@ -4,22 +4,26 @@
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
 <script type="text/babel">
-    function SayHello(props) {
-        return (
-            <div>
-                Hello {props.firstName} {props.lastName}
-            </div>
-        );
-    }
+    class SayHello extends React.Component {
+        static propTypes = {
+            firstName: PropTypes.string.isRequired,
+            lastName: PropTypes.string.isRequired,
+        }
 
-    SayHello.propTypes = {
-        firstName: PropTypes.string.isRequired,
-        lastName: PropTypes.string.isRequired,
+        render() {
+            const props = this.props;
+
+            return (
+                <div>
+                    Hello {props.firstName} {props.lastName}
+                </div>
+            );
+        }
     }
 
     const rootElement = document.getElementById('root');
 
-    const element =<SayHello firstName={'John'} lastName={'Dow'}/>
+    const element =<SayHello firstName={'John'} lastName={'Dow'} />
 
     ReactDOM.render(element, rootElement);
 </script>
