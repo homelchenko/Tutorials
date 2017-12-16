@@ -12,17 +12,22 @@
         );
     }
 
-    SayHello.propTypes = {
-        firstName(props, propName, componentName) {
+    const PropTypes = {
+        string(props, propName, componentName) {
             if (typeof props[propName] !== 'string') {
                 return new Error(`Hey, you should pass a string for '${propName}' in '${componentName}' but passed '${typeof props[propName]}'`);
             }
         }
     }
 
+    SayHello.propTypes = {
+        firstName: PropTypes.string,
+        lastName: PropTypes.string,
+    }
+
     const rootElement = document.getElementById('root');
 
-    const element =<SayHello firstName='John' />
+    const element =<SayHello firstName={'John'} lastName={'Dow'}/>
 
     ReactDOM.render(element, rootElement);
 </script>
