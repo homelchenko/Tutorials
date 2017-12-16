@@ -13,8 +13,10 @@
     }
 
     SayHello.propTypes = {
-        firstName() {
-            return new Error('This will always emit warning!');
+        firstName(props, propName, componentName) {
+            if (typeof props[propName] !== 'string') {
+                return new Error(`Hey, you should pass a string for '${propName}' in '${componentName}' but passed '${typeof props[propName]}'`);
+            }
         }
     }
 
