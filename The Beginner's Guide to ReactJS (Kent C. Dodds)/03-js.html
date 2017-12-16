@@ -8,7 +8,11 @@
     function tick() {
         const time = new Date().toLocaleTimeString();
 
-        const element =<div>It is {time}</div>;
+        const element =
+            <div>
+                It is
+                <input value={time} readOnly/>
+            </div>;
 
         ReactDOM.render(element, rootElement);
     }
