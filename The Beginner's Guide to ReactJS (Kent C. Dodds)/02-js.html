@@ -4,9 +4,17 @@
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 
 <script type="text/babel">
+    function SayHello(props) {
+        return (
+            <div>
+                Hello {props.firstName} {props.lastName}
+            </div>
+        );
+    }
+
     const rootElement = document.getElementById('root');
 
-    const element =<div></div>;
+    const element =<SayHello firstName='John' lastName='Doe' />
 
     ReactDOM.render(element, rootElement);
 </script>
