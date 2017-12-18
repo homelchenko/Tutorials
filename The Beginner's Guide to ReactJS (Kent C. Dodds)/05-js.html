@@ -26,11 +26,12 @@
 <script type="text/babel">
     const rootElement = document.getElementById('root');
 
-    function Box({style, className='', ...rest}) {
+    function Box({style, className = '', size, ...rest}) {
+        const sizeClassName = size ? `box--${size}` : '';
 
         return (
             <div
-                className={`box ${className}`}
+                className={`box ${sizeClassName} ${className}`}
                 style={{padding: 20, ...style} }
                 {...rest}
             />
@@ -39,9 +40,9 @@
 
     const element =
         <div>
-            <Box className="box--small" style={{ backgroundColor: 'lightblue'}}>Small box</Box>
-            <Box className="box--medium" style={{ backgroundColor: 'pink'}}>Small box</Box>
-            <Box className="box--large" style={{ backgroundColor: 'orange'}}>Small box</Box>
+            <Box size="small" style={{ backgroundColor: 'lightblue'}}>Small box</Box>
+            <Box size="medium" style={{ backgroundColor: 'pink'}}>Medium box</Box>
+            <Box size="large" style={{ backgroundColor: 'orange'}}>Large box</Box>
         </div>
 
     ReactDOM.render(element, rootElement);
