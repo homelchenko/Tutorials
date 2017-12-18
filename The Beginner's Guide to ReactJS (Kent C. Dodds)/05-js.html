@@ -26,12 +26,12 @@
 <script type="text/babel">
     const rootElement = document.getElementById('root');
 
-    function Box({style, ...rest}) {
+    function Box({style, className, ...rest}) {
 
         return (
             <div
-                className="box box--small"
-                style={{paddingLeft: 20, ...style} }
+                className={`box ${className}`}
+                style={{padding: 20, ...style} }
                 {...rest}
             />
         );
@@ -39,7 +39,7 @@
 
     const element =
         <div>
-            <Box style={{ backgroundColor: 'lightblue'}}>Small box</Box>
+            <Box className="box-small" style={{ backgroundColor: 'lightblue'}}>Small box</Box>
         </div>
 
     ReactDOM.render(element, rootElement);
