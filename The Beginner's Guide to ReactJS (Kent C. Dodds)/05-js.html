@@ -26,22 +26,20 @@
 <script type="text/babel">
     const rootElement = document.getElementById('root');
 
-    const props = {
-        className: "box box--small",
-        style: {
-            paddingLeft: 20
-        }
-    }
-
     function Box(props) {
+
         return (
-            <div {...props } />
+            <div
+                className="box box--small"
+                style={{padding: 20}}
+                {...props}
+            />
         );
     }
 
     const element =
         <div>
-            <Box {...props} >Box</Box>
+            <Box>Small box</Box>
         </div>
 
     ReactDOM.render(element, rootElement);
