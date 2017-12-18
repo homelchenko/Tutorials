@@ -1,8 +1,32 @@
+<div class="box box--small"></div>
+<div class="box box--medium"></div>
+<div class="box box--large"></div>
 <div id="root"></div>
 <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+<style>
+    .box {
+        border: 1px solid #333;
+    }
+
+    .box--small {
+        width: 60px;
+        height: 60px;
+    }
+
+    .box--medium {
+        width: 120px;
+        height: 120px;
+    }
+
+    .box--large {
+        width: 180px;
+        height: 180px;
+    }
+
+</style>
 <script type="text/babel">
     const rootElement = document.getElementById('root');
 
