@@ -12,7 +12,7 @@
                     There have been {state.eventCount} events
                 </p>
                 <p>
-                    <button>Icon</button>
+                    <button onClick={increment}>Icon</button>
                 </p>
                 <p>You typed: {state.userName}</p>
                 <p>
@@ -20,6 +20,10 @@
                 </p>
             </div>
         );
+    };
+
+    function increment () {
+        setState({eventCount: state.eventCount + 1})
     };
 
     function setState(newState) {
