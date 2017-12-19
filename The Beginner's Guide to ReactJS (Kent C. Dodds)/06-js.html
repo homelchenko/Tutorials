@@ -3,9 +3,30 @@
 <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 <script type="text/babel">
-    const rootElement = document.getElementById('root');
+    const state = { eventCount: 0, username: '' };
 
-    const element = <div />;
+    function App() {
+        return (
+            <div>
+                <p>
+                    There have been {state.eventCount} events
+                </p>
+                <p>
+                    <button>Icon</button>
+                </p>
+                <p>You typed: {state.userName}</p>
+                <p>
+                    <input />
+                </p>
+            </div>
+        );
+    };
 
-    ReactDOM.render(element, rootElement);
+    function renderApp() {
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root'))
+    };
+
+    renderApp();
 </script>
