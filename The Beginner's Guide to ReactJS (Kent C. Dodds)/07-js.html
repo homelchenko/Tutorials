@@ -3,16 +3,33 @@
 <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 <script type="text/babel">
-    function App() {
+    function Stopwatch() {
+        const buttonStyles = {
+            border: '1px solid #ccc',
+            background: '#fff',
+            fontSize: '2em',
+            padding: 15,
+            margin: 5,
+            width: 200,
+        };
+
         return (
-            <div>
+            <div style={{textAligh: 'center'}}>
+                <label
+                    style={{
+                        fontSize: '5em',
+                        displah: 'block',
+                    }}
+                >
+                    10 ms
+                </label>
             </div>
         );
     };
 
     function renderApp() {
         ReactDOM.render(
-            <div></div>,
+            <Stopwatch />,
             document.getElementById('root'))
     };
 
