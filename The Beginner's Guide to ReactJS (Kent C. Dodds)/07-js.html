@@ -3,45 +3,49 @@
 <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 <script type="text/babel">
-    function Stopwatch({lapse, running}) {
-        const buttonStyles = {
-            border: '1px solid #ccc',
-            background: '#fff',
-            fontSize: '2em',
-            padding: 15,
-            margin: 5,
-            width: 200,
-        };
+    class StopWatch extends React.Component {
+        render() {
+            const { lapse, running } = this.props;
 
-        return (
-            <div style={{textAligh: 'center'}}>
-                <label
-                    style={{
-                        fontSize: '5em',
-                        display: 'block',
-                    }}
-                >
-                    {lapse} ms
-                </label>
-                <button
-                    onClick={() => {}}
-                    style={buttonStyles}
-                >
-                    {running ? 'Stop' : 'Start'}
-                </button >
-                <button
-                    onClick={() => {}}
-                    style={buttonStyles}
-                >
-                    Clear
-                </button>
-            </div>
-        );
-    };
+            const buttonStyles = {
+                border: '1px solid #ccc',
+                background: '#fff',
+                fontSize: '2em',
+                padding: 15,
+                margin: 5,
+                width: 200,
+            };
+
+            return (
+                <div style={{textAligh: 'center'}}>
+                    <label
+                        style={{
+                            fontSize: '5em',
+                            display: 'block',
+                        }}
+                    >
+                        {lapse} ms
+                    </label>
+                    <button
+                        onClick={() => {}}
+                        style={buttonStyles}
+                    >
+                        {running ? 'Stop' : 'Start'}
+                    </button >
+                    <button
+                        onClick={() => {}}
+                        style={buttonStyles}
+                    >
+                        Clear
+                    </button>
+                </div>
+            );
+        }
+    }
 
     function renderApp() {
         ReactDOM.render(
-            <Stopwatch lapse={0} running={true} />,
+            <StopWatch lapse={0} running={true} />,
             document.getElementById('root'))
     };
 
