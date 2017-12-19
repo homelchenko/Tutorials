@@ -3,7 +3,7 @@
 <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 <script type="text/babel">
-    function Stopwatch({lapse}) {
+    function Stopwatch({lapse, running}) {
         const buttonStyles = {
             border: '1px solid #ccc',
             background: '#fff',
@@ -12,8 +12,6 @@
             margin: 5,
             width: 200,
         };
-
-        const running = false;
 
         return (
             <div style={{textAligh: 'center'}}>
@@ -43,7 +41,7 @@
 
     function renderApp() {
         ReactDOM.render(
-            <Stopwatch lapse={0} />,
+            <Stopwatch lapse={0} running={true} />,
             document.getElementById('root'))
     };
 
