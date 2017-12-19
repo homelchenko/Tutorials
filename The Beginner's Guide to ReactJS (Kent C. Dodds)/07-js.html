@@ -13,16 +13,30 @@
             width: 200,
         };
 
+        const running = false;
+
         return (
             <div style={{textAligh: 'center'}}>
                 <label
                     style={{
                         fontSize: '5em',
-                        displah: 'block',
+                        display: 'block',
                     }}
                 >
                     10 ms
                 </label>
+                <button
+                    onClick={() => {}}
+                    style={buttonStyles}
+                >
+                    {running ? 'Stop' : 'Start'}
+                </button >
+                <button
+                    onClick={() => {}}
+                    style={buttonStyles}
+                >
+                    Clear
+                </button>
             </div>
         );
     };
