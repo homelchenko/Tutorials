@@ -7,7 +7,15 @@
         state = { lapse: 0, running: false};
 
         handleClickStart() {
-            this.setState({ lapse: 10, running: true})
+            const startTime = Date.now() - this.state.lapse;
+
+            setInterval(() => {
+                this.setState({
+                    lapse: Date.now() - startTime
+                })
+            });
+
+            this.setState({ running: true })
         }
 
         handleClickReset() {
