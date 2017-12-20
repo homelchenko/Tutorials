@@ -10,6 +10,10 @@
             this.setState({ lapse: 10, running: true})
         }
 
+        handleClickReset() {
+            this.setState({ lapse: 0, running: false })
+        }
+
         render() {
             const { lapse, running } = this.state;
 
@@ -39,7 +43,7 @@
                         {running ? 'Stop' : 'Start'}
                     </button >
                     <button
-                        onClick={() => {}}
+                        onClick={this.handleClickReset.bind(this)}
                         style={buttonStyles}
                     >
                         Clear
