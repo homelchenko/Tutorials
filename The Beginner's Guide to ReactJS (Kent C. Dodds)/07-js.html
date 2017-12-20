@@ -7,19 +7,23 @@
         state = { lapse: 0, running: false};
 
         handleClickStart() {
-            if (this.timer) {
+            const newRunning = !this.state.running;
+
+            if (newRunning) {
+                const startTime = Date.now()
+
+                this.timer = setInterval(() => {
+                    this.setState({
+                        lapse: Date.now() - startTime
+                    })
+                });
+            } else {
                 clearInterval(this.timer);
             }
 
-            const startTime = Date.now()
-
-            this.timer = setInterval(() => {
-                this.setState({
-                    lapse: Date.now() - startTime
-                })
+            this.setState(state => {
+                return { running: newRunning };
             });
-
-            this.setState({ running: true })
         }
 
         handleClickReset() {
