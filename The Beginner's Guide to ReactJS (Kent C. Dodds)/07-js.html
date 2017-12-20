@@ -27,6 +27,7 @@
         }
 
         handleClickReset() {
+            clearInterval(this.timer);
             this.setState({ lapse: 0, running: false })
         }
 
