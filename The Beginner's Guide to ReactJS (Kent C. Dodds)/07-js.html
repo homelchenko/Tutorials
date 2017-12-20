@@ -4,8 +4,13 @@
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 <script type="text/babel">
     class StopWatch extends React.Component {
+        state = {
+            lapse: 0,
+            running: false
+        };
+
         render() {
-            const { lapse, running } = this.props;
+            const { lapse, running } = this.state;
 
             const buttonStyles = {
                 border: '1px solid #ccc',
@@ -45,7 +50,7 @@
 
     function renderApp() {
         ReactDOM.render(
-            <StopWatch lapse={0} running={true} />,
+            <StopWatch />,
             document.getElementById('root'))
     };
 
