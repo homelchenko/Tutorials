@@ -4,10 +4,11 @@
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 <script type="text/babel">
     class StopWatch extends React.Component {
-        state = {
-            lapse: 0,
-            running: false
-        };
+        state = { lapse: 0, running: false};
+
+        handleClickStart() {
+            this.setState({ lapse: 10, running: true})
+        }
 
         render() {
             const { lapse, running } = this.state;
@@ -32,7 +33,7 @@
                         {lapse} ms
                     </label>
                     <button
-                        onClick={() => {}}
+                        onClick={this.handleClickStart.bind(this)}
                         style={buttonStyles}
                     >
                         {running ? 'Stop' : 'Start'}
