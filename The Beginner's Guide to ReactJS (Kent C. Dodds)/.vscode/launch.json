@@ -11,7 +11,7 @@
             "windows": {
                 "command": "chrome.exe",
                 "runtimeArgs": [
-                    "${cwd}\\08-js.html"
+                    "${cwd}\\09-js.html"
                 ]
             }
         }
