@@ -37,10 +37,13 @@
 
 <script type="text/babel">
     class Tilt extends React.Component {
+        componentDidMount() {
+            console.log(this.rootNode);
+        }
 
         render() {
             return (
-                <div className="tilt-root">
+                <div ref={node => this.rootNode = node} className="tilt-root">
                     <div className="tilt-child">
                         <div {...this.props} />
                     </div>
