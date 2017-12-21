@@ -7,18 +7,23 @@
 
         render() {
             return (
-                <div className="totally-centered">
-                    <div>
-                        <div>vanilla-tilt.js</div>
+                <div className="tilt-root">
+                    <div className="tilt-child">
+                        <div {...props} />
                     </div>
                 </div>
             );
         }
     }
 
+    const element =
+        <div className="totally-centred">
+            vanilla-tilt.js
+        </div>;
+
     function renderApp() {
         ReactDOM.render(
-            <Tilt />,
+            element,
             document.getElementById('root'))
     };
 
