@@ -5,9 +5,13 @@
 
 <script type="text/babel">
     class NameForm extends React.Component {
+        handleSubmit(event) {
+            event.preventDefault();
+        }
+
         render() {
             return (
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label>
                         Name:
                         <input type="text" />
