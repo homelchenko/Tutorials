@@ -28,7 +28,11 @@
         }
 
         handleChange(event) {
-            const error = this.getErrorMessage(this.nameNode.value);
+            this.validateName(this.nameNode.value);
+        }
+
+        validateName(name) {
+            const error = this.getErrorMessage(name);
 
             this.setState({
                 error
@@ -37,6 +41,10 @@
 
         setNameNode(node) {
             this.nameNode = node;
+        }
+
+        componentDidMount() {
+            this.validateName(this.nameNode.value);
         }
 
         render() {
