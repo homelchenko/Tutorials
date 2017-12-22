@@ -5,12 +5,10 @@
 
 <script type="text/babel">
     class NameForm extends React.Component {
+        state = { error: null }
+
         handleSubmit(event) {
             event.preventDefault();
-
-            const error = this.getErrorMessage(this.nameNode.value);
-
-            console.log(error);
         }
 
         getErrorMessage(name) {
@@ -26,7 +24,15 @@
                 return `Name must contain 's' character`;
             }
 
-            return `success: ${name}`;
+            return null;
+        }
+
+        handleChange(event) {
+            const error = this.getErrorMessage(this.nameNode.value);
+
+            this.setState({
+                error
+            })
         }
 
         setNameNode(node) {
@@ -34,18 +40,19 @@
         }
 
         render() {
+            const { error } = this.state;
+
             return (
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <label>
                         Name:
-                        <input type="text" ref={this.setNameNode.bind(this)} />
+                        <input type="text" ref={this.setNameNode.bind(this)} onChange={this.handleChange.bind(this)} />
                     </label>
-                    <button type="submit">Submit</button>
+                    <button disabled={Boolean(error)} type="submit">Submit</button>
                 </form>
             )
         }
     }
-
 
     function renderApp() {
         ReactDOM.render(
