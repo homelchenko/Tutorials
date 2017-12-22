@@ -56,6 +56,13 @@
                         Name:
                         <input type="text" ref={this.setNameNode.bind(this)} onChange={this.handleChange.bind(this)} />
                     </label>
+                    {error ? (
+                        <div
+                            style={{ color: 'red' }}
+                        >
+                            {error}
+                        </div>
+                    ) : null}
                     <button disabled={Boolean(error)} type="submit">Submit</button>
                 </form>
             )
