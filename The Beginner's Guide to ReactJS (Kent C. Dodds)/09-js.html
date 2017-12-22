@@ -7,7 +7,18 @@
     class NameForm extends React.Component {
         handleSubmit(event) {
             event.preventDefault();
-            console.log(this.nameNode.value);
+
+            const error = this.getErrorMessage(this.nameNode.value);
+
+            console.log(error);
+        }
+
+        getErrorMessage(name) {
+            if (name && name.length > 2 && name.includes("s")) {
+                return `success: ${name}`;
+            } else {
+                return `name must be more than 3 characteres and includes 's' letter`;
+            }
         }
 
         setNameNode(node) {
