@@ -14,11 +14,19 @@
         }
 
         getErrorMessage(name) {
-            if (name && name.length > 2 && name.includes("s")) {
-                return `success: ${name}`;
-            } else {
-                return `name must be more than 3 characteres and includes 's' letter`;
+            if (!name) {
+                return `You must specify the name`;
             }
+
+            if (name.length < 3) {
+                return `Name must be at least 3 characters, but you have only ${name.length}`;
+            }
+
+            if (!name.includes("s")) {
+                return `Name must contain 's' character`;
+            }
+
+            return `success: ${name}`;
         }
 
         setNameNode(node) {
