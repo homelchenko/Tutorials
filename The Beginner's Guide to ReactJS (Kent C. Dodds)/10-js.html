@@ -48,7 +48,7 @@
                                     FancyForm.availableOptions.length
                                 }
                                 onChange={
-                                    this.handleMultilineChange
+                                    this.handleMultilineChange.bind(this)
                                 }
                             />
                         </label>
@@ -89,13 +89,27 @@
         handleCommaSeparatedChange(event) {
             const value = event.target.value;
 
-            const meaningfulFruitNames = value.split(',').map(value => value.trim()).filter(Boolean);
+            const nonEmptyFruitNames= this.splitIntoNonEmpty(value, ',');
 
             this.setState({
                 commaList: value,
-                multilineList: meaningfulFruitNames.join('\n'),
-                selectedOptions: meaningfulFruitNames
+                multilineList: nonEmptyFruitNames.join('\n'),
+                selectedOptions: nonEmptyFruitNames
             });
+        }
+
+        handleMultilineChange(event) {
+            const value = event.target.value;
+
+            this.setState({
+                commaList: this.splitIntoNonEmpty(value, '\n').join(','),
+                multilineList: value,
+                selectedOptions: []
+            });
+        }
+
+        splitIntoNonEmpty(value, token) {
+            return value.split(token).filter(value => value.trim()).filter(Boolean);
         }
     }
 
