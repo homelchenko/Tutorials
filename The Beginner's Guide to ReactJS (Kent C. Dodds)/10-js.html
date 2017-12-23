@@ -16,11 +16,12 @@
 
         state = {
             commaList: '',
-            multilineList: ''
+            multilineList: '',
+            selectedOptions: []
         }
 
         render() {
-            const { commaList, multilineList } = this.state;
+            const { commaList, multilineList, selectedOptions } = this.state;
 
             return (
                 <form>
@@ -58,6 +59,7 @@
                             <br />
                             <select
                                 multiple
+                                value={selectedOptions}
                                 size={
                                     FancyForm.availableOptions.length
                                 }
@@ -87,9 +89,12 @@
         handleCommaSeparatedChange(event) {
             const value = event.target.value;
 
+            const meaningfulFruitNames = value.split(',').map(value => value.trim()).filter(Boolean);
+
             this.setState({
                 commaList: value,
-                multilineList: value.split(',').map(value => value.trim()).filter(Boolean).join('\n')
+                multilineList: meaningfulFruitNames.join('\n'),
+                selectedOptions: meaningfulFruitNames
             });
         }
     }
