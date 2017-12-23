@@ -5,6 +5,15 @@
 
 <script type="text/babel">
     class FancyForm extends React.Component {
+        static availableOptions = [
+            'apple',
+            'grape',
+            'cherry',
+            'orange',
+            'pear',
+            'peach',
+        ]
+
         render() {
             return (
                 <form>
@@ -16,6 +25,20 @@
                                 type="text"
                                 onChange={
                                     this.handleCommaSeparatedChange
+                                }
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            multiline values:
+                            <br />
+                            <textarea
+                                rows={
+                                    FancyForm.availableOptions.length
+                                }
+                                onChange={
+                                    this.handleMultilineChange
                                 }
                             />
                         </label>
