@@ -8,6 +8,18 @@
         render() {
             return (
                 <form>
+                    <div>
+                        <label>
+                            comma separated values:
+                            <br />
+                            <input
+                                type="text"
+                                onChange={
+                                    this.handleCommaSeparatedChange
+                                }
+                            />
+                        </label>
+                    </div>
                 </form>
             )
         }
