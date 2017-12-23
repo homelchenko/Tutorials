@@ -14,7 +14,14 @@
             'peach',
         ]
 
+        state = {
+            commaList: '',
+            multilineList: ''
+        }
+
         render() {
+            const { commaList, multilineList } = this.state;
+
             return (
                 <form>
                     <div>
@@ -23,8 +30,9 @@
                             <br />
                             <input
                                 type="text"
+                                value={commaList}
                                 onChange={
-                                    this.handleCommaSeparatedChange
+                                    this.handleCommaSeparatedChange.bind(this)
                                 }
                             />
                         </label>
@@ -34,6 +42,7 @@
                             multiline values:
                             <br />
                             <textarea
+                                value={multilineList}
                                 rows={
                                     FancyForm.availableOptions.length
                                 }
@@ -73,6 +82,15 @@
                     </div>
                 </form>
             )
+        }
+
+        handleCommaSeparatedChange(event) {
+            const value = event.target.value;
+
+            this.setState({
+                commaList: value,
+                multilineList: value.split(',').map(value => value.trim()).filter(Boolean).join('\n')
+            });
         }
     }
 
