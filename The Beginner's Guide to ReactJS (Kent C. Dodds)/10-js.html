@@ -43,6 +43,34 @@
                             />
                         </label>
                     </div>
+                    <div>
+                        <label>
+                            multiSelect values:
+                            <br />
+                            <select
+                                multiple
+                                size={
+                                    FancyForm.availableOptions.length
+                                }
+                                onChange={
+                                    this.handleMultiselectChange
+                                }
+                            >
+                                {
+                                    FancyForm.availableOptions.map(
+                                        optionValue => (
+                                            <option
+                                                key={optionValue}
+                                                value={optionValue}
+                                            >
+                                                {optionValue}
+                                            </option>
+                                        )
+                                    )
+                                }
+                            </select>
+                        </label>
+                    </div>
                 </form>
             )
         }
