@@ -89,11 +89,11 @@
         handleCommaSeparatedChange(event) {
             const value = event.target.value;
 
-            const nonEmptyFruitNames= this.splitIntoNonEmpty(value, ',');
+            const nonEmptyFruitNames= this.splitCommaSeparatedIntoNonEmpty(value);
 
             this.setState({
                 commaList: value,
-                multilineList: nonEmptyFruitNames.join('\n'),
+                multilineList: this.toMultilineList(nonEmptyFruitNames),
                 selectedOptions: nonEmptyFruitNames
             });
         }
@@ -101,13 +101,21 @@
         handleMultilineChange(event) {
             const value = event.target.value;
 
-            const nonEmptyFruitNames = this.splitIntoNonEmpty(value, '\n');
+            const nonEmptyFruitNames = this.splitMultilineIntoNonEmpty(value);
 
             this.setState({
-                commaList: nonEmptyFruitNames.join(','),
+                commaList: this.toCommaSeparatedList(nonEmptyFruitNames),
                 multilineList: value,
                 selectedOptions: nonEmptyFruitNames
             });
+        }
+
+        splitCommaSeparatedIntoNonEmpty(value) {
+            return this.splitIntoNonEmpty(value, ',');
+        }
+
+        splitMultilineIntoNonEmpty(value) {
+            return this.splitIntoNonEmpty(value, '\n');
         }
 
         splitIntoNonEmpty(value, token) {
@@ -120,12 +128,21 @@
             const selectedFruits = Array.from(selectedOptions).map(option => option.value);
 
             this.setState({
-                commaList: selectedFruits.join(','),
-                multilineList: selectedFruits.join('\n'),
+                commaList: this.toCommaSeparatedList(selectedFruits),
+                multilineList: this.toMultilineList(selectedFruits),
                 selectedOptions: selectedFruits
             });
         }
+
+        toCommaSeparatedList(array) {
+            return array.join(',');
+        }
+
+        toMultilineList(array) {
+            return array.join('\n');
+        }
     }
+
 
     function renderApp() {
         ReactDOM.render(
