@@ -101,10 +101,12 @@
         handleMultilineChange(event) {
             const value = event.target.value;
 
+            const nonEmptyFruitNames = this.splitIntoNonEmpty(value, '\n');
+
             this.setState({
-                commaList: this.splitIntoNonEmpty(value, '\n').join(','),
+                commaList: nonEmptyFruitNames.join(','),
                 multilineList: value,
-                selectedOptions: []
+                selectedOptions: nonEmptyFruitNames
             });
         }
 
