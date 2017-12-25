@@ -64,7 +64,7 @@
                                     FancyForm.availableOptions.length
                                 }
                                 onChange={
-                                    this.handleMultiselectChange
+                                    this.handleMultiselectChange.bind(this)
                                 }
                             >
                                 {
@@ -112,6 +112,18 @@
 
         splitIntoNonEmpty(value, token) {
             return value.split(token).filter(value => value.trim()).filter(Boolean);
+        }
+
+        handleMultiselectChange(event) {
+            const selectedOptions = event.target.selectedOptions;
+
+            const selectedFruits = Array.from(selectedOptions).map(option => option.value);
+
+            this.setState({
+                commaList: selectedFruits.join(','),
+                multilineList: '',
+                selectedOptions: selectedFruits
+            });
         }
     }
 
