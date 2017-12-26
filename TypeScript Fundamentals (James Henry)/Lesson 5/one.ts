@@ -1,5 +1,6 @@
-import { Animal } from './two'
+import { Mamal } from './two'
 
-class Dog extends Animal {
+// Animal class helps with something
+class Dog extends Mamal {
     paws: string;
 }

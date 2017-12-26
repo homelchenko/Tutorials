@@ -1,3 +1,3 @@
-export class Animal {
+export class Mamal {
     legs: number;
 }
