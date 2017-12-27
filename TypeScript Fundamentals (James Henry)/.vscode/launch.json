@@ -11,7 +11,7 @@
             "windows": {
                 "command": "chrome.exe",
                 "runtimeArgs": [
-                    "${cwd}\\Lesson 7\\index.html"
+                    "${cwd}\\Lesson 8\\index.html"
                 ]
             }
         }
