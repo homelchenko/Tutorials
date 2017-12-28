@@ -1,4 +1,6 @@
-var symbol: string = '#';
+type ValidSymbol = '#' | '$';
+
+var symbol: ValidSymbol = '#';
 var length: number = 7;
 
 function generateRandomID() {
