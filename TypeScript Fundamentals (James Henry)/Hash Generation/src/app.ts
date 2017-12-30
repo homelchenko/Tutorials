@@ -5,6 +5,12 @@ interface GenerateOptions {
     length: number,
 }
 
+var id = identity<number | string>(1);
+
+function identity<T>(argument: T): T {
+    return argument;
+}
+
 generateRandomID('#', 8);
 generateRandomID({ symbol: '$', length: 11 });
 
