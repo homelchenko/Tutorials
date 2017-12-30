@@ -1,13 +1,16 @@
 type ValidSymbol = '#' | '$';
 
-function generateRandomID(symbol: ValidSymbol, length: number): string {
-    return symbol + Math.random().toString(36)
-        .substr(2, length);
+function generateRandomID(options: { symbol: ValidSymbol, length: number }): string {
+    return options.symbol + Math.random().toString(36)
+        .substr(2, options.length);
 }
 
 function main() {
     var appComponent = document.getElementById('app');
     setInterval(function() {
-        appComponent.innerHTML = generateRandomID('#', 7);
+        appComponent.innerHTML = generateRandomID({
+            symbol: '#',
+            length: 7,
+        });
     }, 1000);
 }
