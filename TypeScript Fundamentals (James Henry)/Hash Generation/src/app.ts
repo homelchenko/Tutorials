@@ -1,4 +1,4 @@
-//import { generateRandomID } from './utils';
+import { generateRandomID } from './utils';
 
 var id = identity<number | string>(1);
 
