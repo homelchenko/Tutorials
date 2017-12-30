@@ -1,9 +1,4 @@
-type ValidSymbol = '#' | '$';
-
-interface GenerateOptions {
-    symbol: ValidSymbol,
-    length: number,
-}
+//import { generateRandomID } from './utils';
 
 var id = identity<number | string>(1);
 
@@ -13,18 +8,6 @@ function identity<T>(argument: T): T {
 
 generateRandomID('#', 8);
 generateRandomID({ symbol: '$', length: 11 });
-
-function generateRandomID(symbol: ValidSymbol, length: number): string;
-function generateRandomID(options: GenerateOptions): string;
-function generateRandomID(optionsOrSymbol: GenerateOptions | ValidSymbol, length?: number): string {
-    if (typeof optionsOrSymbol === 'string') {
-        return optionsOrSymbol + Math.random().toString(36)
-            .substr(2, length);
-    }
-
-    return optionsOrSymbol.symbol + Math.random().toString(36)
-        .substr(2, optionsOrSymbol.length);
-}
 
 function main() {
     var appComponent = document.getElementById('app');
