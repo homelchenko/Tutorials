@@ -1,16 +1,6 @@
 import { generateRandomID } from './utils';
 
-class Component {
-    constructor() {
-        this.log();
-    }
-
-    log(){
-        console.log(`Component created`);
-    }
-}
-
-class App extends Component {
+class App {
     static id = 'app';
 
     onInit(element: HTMLElement | null): void {
