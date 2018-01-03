@@ -1,17 +1,11 @@
 import { generateRandomID } from './utils';
 
 class App {
-    id: string;
-
-    constructor() {
-        this.id = 'app';
-    }
+    static id = 'app';
 }
 
-function main(ComponentClass) {
-    var component = new ComponentClass();
-
-    var appComponent = document.getElementById(component.id);
+function main() {
+    var appComponent = document.getElementById(App.id);
     setInterval(function() {
         appComponent.innerHTML = generateRandomID({
             symbol: '#',
@@ -20,4 +14,4 @@ function main(ComponentClass) {
     }, 1000);
 }
 
-main(App);
+main();
