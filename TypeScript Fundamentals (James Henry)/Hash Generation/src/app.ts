@@ -1,8 +1,15 @@
 import { generateRandomID } from './utils';
 
-class App {
-    public static readonly id = 'app';
+function Component(options: { id: string }) {
+    return (target) => {
+        target.id = options.id;
+    }
+}
 
+@Component({
+    id: 'app'
+})
+class App {
     private onInit(element: HTMLElement | null): void {
         if (element) {
             setInterval(function() {
@@ -16,7 +23,7 @@ class App {
 }
 
 function main(ComponentClass) {
-    var applicationRoot = document.getElementById(App.id);
+    var applicationRoot = document.getElementById(ComponentClass.id);
     var component = new ComponentClass();
     component.onInit(applicationRoot);
 }
