@@ -1,3 +1,5 @@
+import { random } from 'lodash';
+
 import { generateRandomID, Component } from './utils';
 
 function enumerable(isEnumerable: boolean) {
@@ -42,7 +44,7 @@ class App {
             setInterval(function() {
                 element.innerHTML = generateRandomID({
                     symbol: '#',
-                    length: 7,
+                    length: random(7, 10),
                 });
             }, 1000);
         }
