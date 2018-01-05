@@ -1,10 +1,4 @@
-import { generateRandomID } from './utils';
-
-function Component(options: { id: string }) {
-    return (target) => {
-        target.id = options.id;
-    }
-}
+import { generateRandomID, Component } from './utils';
 
 @Component({
     id: 'app'
