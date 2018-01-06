@@ -1,8 +1,27 @@
 <html>
     <head>
+        <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
 
+        <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     </head>
     <body>
-        
+        <div id="app"></div>
+
+        <script type="text/babel">
+            console.log("Standalone Babel has been setup to work with React");
+        </script>
+
+        <script type="text/babel">
+            var rootElement = document.getElementById("app");
+
+            var App = () => <div>React App</div>;
+
+            ReactDOM.render(
+                <App />,
+                rootElement
+            );
+        </script>
     </body>
 </html>
