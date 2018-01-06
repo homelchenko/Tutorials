@@ -14,13 +14,20 @@
         </script>
 
         <script type="text/babel">
-            var rootElement = document.getElementById("app");
-
-            var App = () => <div>React App</div>;
+            var App = () =>
+                <div style={{
+                    marginTop: 40,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    textAlign: 'center',
+                }}>
+                    React App
+                </div>;
 
             ReactDOM.render(
                 <App />,
-                rootElement
+                document.getElementById("app")
             );
         </script>
     </body>
