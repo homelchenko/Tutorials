@@ -9,8 +9,18 @@
     <body>
         <div id="app"></div>
 
-        <script type="text/babel">
+        <script type="text/javascript">
             console.log("Standalone Babel has been setup to work with React");
+        </script>
+
+        <script type="text/babel">
+            class Toggle extends React.Component {
+                render () {
+                    return (
+                        <div>Toggle</div>
+                    )
+                }
+            }
         </script>
 
         <script type="text/babel">
@@ -22,7 +32,8 @@
                     flexDirection: 'column',
                     textAlign: 'center',
                 }}>
-                    React App
+                    'Advanced React Component Patterns' Course Presents:
+                    <Toggle />
                 </div>;
 
             ReactDOM.render(
