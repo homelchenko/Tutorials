@@ -92,12 +92,16 @@
             class Toggle extends React.Component {
                 state = { on: false };
 
+                toggle() {
+                    this.setState(({ on }) => ({ on: !on }));
+                }
+
                 render () {
                     const { on } = this.state;
 
                     return (
                         <div>
-                            <Switch on={on}/>
+                            <Switch on={on} onClick={this.toggle.bind(this)}/>
                         </div>
                     )
                 }
@@ -115,6 +119,7 @@
                         <button
                             className={`toggle-btn ${on ? 'toggle-btn-on' : 'toggleBtn-off'}`}
                             aria-expanded="true"
+                            {...props}
                         />
                     </div>
                 )
