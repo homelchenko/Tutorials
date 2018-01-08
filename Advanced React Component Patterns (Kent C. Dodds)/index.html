@@ -138,7 +138,7 @@
                     textAlign: 'center',
                 }}>
                     'Advanced React Component Patterns' Course Presents:
-                    <Toggle />
+                    <Toggle onToggle={(on) => console.log(`Toggle has been switched to ${on}`)}/>
                 </div>;
 
             ReactDOM.render(
