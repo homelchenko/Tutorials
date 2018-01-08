@@ -93,30 +93,28 @@
                 render () {
                     return (
                         <div>
-                            <Switch state="off"/>
-                            <Switch state="on"/>
+                            <Switch on={false}/>
+                            <Switch on={true}/>
                         </div>
                     )
                 }
             }
 
-            class Switch extends React.Component {
-                render () {
-                    const { state } = this.props;
+            function Switch({on, ...props}) {
+                const { className } = props;
 
-                    return (
-                        <div className="toggle">
-                            <input
-                                className="toggle-input"
-                                type="checkbox"
-                            />
-                            <button
-                                className={`toggle-btn toggle-btn-${state}`}
-                                aria-expanded="true"
-                            />
-                        </div>
-                    )
-                }
+                return (
+                    <div className="toggle">
+                        <input
+                            className="toggle-input"
+                            type="checkbox"
+                        />
+                        <button
+                            className={`toggle-btn ${on ? 'toggle-btn-on' : 'toggleBtn-off'}`}
+                            aria-expanded="true"
+                        />
+                    </div>
+                )
             }
 
             var App = () =>
