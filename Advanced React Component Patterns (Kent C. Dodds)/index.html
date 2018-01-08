@@ -90,11 +90,14 @@
 
         <script type="text/babel">
             class Toggle extends React.Component {
+                state = { on: false };
+
                 render () {
+                    const { on } = this.state;
+
                     return (
                         <div>
-                            <Switch on={false}/>
-                            <Switch on={true}/>
+                            <Switch on={on}/>
                         </div>
                     )
                 }
