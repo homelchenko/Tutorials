@@ -5,6 +5,7 @@
         <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+        <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
     </head>
     <body>
         <style>
@@ -89,7 +90,11 @@
         </script>
 
         <script type="text/babel">
-            function ToggleButton({on, toggle}) {
+            const TOGGLE_CONTEXT = '__TOGGEL_COMPONENT__';
+
+            function ToggleButton(props, context) {
+                const { on, toggle } = context[TOGGLE_CONTEXT];
+
                 return (
                     <Switch
                         on={on}
@@ -97,6 +102,10 @@
                     />
                 );
             }
+
+            ToggleButton.contextTypes = {
+                [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
+            };
 
             function ToggleOn({on, children}) {
                 return (
@@ -115,8 +124,21 @@
                 static On = ToggleOn;
                 static Off = ToggleOff;
 
+                static childContextTypes = {
+                    [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
+                };
+
                 static defaultProps = { onToggle: () => {}};
                 state = { on: false };
+
+                getChildContext() {
+                    return {
+                        [TOGGLE_CONTEXT]: {
+                            on: this.state.on,
+                            toggle: this.toggle.bind(this)
+                        }
+                    }
+                }
 
                 toggle() {
                     this.setState(
@@ -170,8 +192,10 @@
                 }}>
                     'Advanced React Component Patterns' Course Presents:
                     <Toggle onToggle={(on) => console.log(`Toggle has been switched to ${on}`)}>
+                        <div>
+                            <Toggle.Button />
+                        </div>
                         <Toggle.On>Toggle is ON</Toggle.On>
-                        <Toggle.Button />
                         <Toggle.Off>Toggle is OFF</Toggle.Off>
                     </Toggle>
                 </div>;
