@@ -119,11 +119,17 @@
                 [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
             };
 
-            function ToggleOff({on, children}) {
+            function ToggleOff({children}, context) {
+                const { on } = context[TOGGLE_CONTEXT];
+
                 return (
                     on ? null : children
                 );
             }
+
+            ToggleOff.contextTypes = {
+                [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
+            };
 
             class Toggle extends React.Component {
                 static Button = ToggleButton;
@@ -204,7 +210,9 @@
                         <div>
                             <Toggle.On>Toggle is ON</Toggle.On>
                         </div>
-                        <Toggle.Off>Toggle is OFF</Toggle.Off>
+                        <div>
+                            <Toggle.Off>Toggle is OFF</Toggle.Off>
+                        </div>
                     </Toggle>
                 </div>;
 
