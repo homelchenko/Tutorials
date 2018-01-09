@@ -107,11 +107,17 @@
                 [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
             };
 
-            function ToggleOn({on, children}) {
+            function ToggleOn({ children }, context) {
+                const { on } = context[TOGGLE_CONTEXT];
+
                 return (
                     on ? children : null
                 );
             }
+
+            ToggleOn.contextTypes = {
+                [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
+            };
 
             function ToggleOff({on, children}) {
                 return (
@@ -195,7 +201,9 @@
                         <div>
                             <Toggle.Button />
                         </div>
-                        <Toggle.On>Toggle is ON</Toggle.On>
+                        <div>
+                            <Toggle.On>Toggle is ON</Toggle.On>
+                        </div>
                         <Toggle.Off>Toggle is OFF</Toggle.Off>
                     </Toggle>
                 </div>;
