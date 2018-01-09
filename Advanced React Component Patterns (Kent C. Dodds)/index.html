@@ -98,8 +98,15 @@
                 );
             }
 
+            function ToggleOn({on, children}) {
+                return (
+                    on ? children : null
+                );
+            }
+
             class Toggle extends React.Component {
                 static Button = ToggleButton;
+                static On = ToggleOn;
 
                 static defaultProps = { onToggle: () => {}};
                 state = { on: false };
@@ -156,6 +163,7 @@
                 }}>
                     'Advanced React Component Patterns' Course Presents:
                     <Toggle onToggle={(on) => console.log(`Toggle has been switched to ${on}`)}>
+                        <Toggle.On>Toggle is ON</Toggle.On>
                         <Toggle.Button />
                     </Toggle>
                 </div>;
