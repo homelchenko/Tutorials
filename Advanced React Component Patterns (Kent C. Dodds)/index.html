@@ -89,8 +89,19 @@
         </script>
 
         <script type="text/babel">
+            function ToggleButton({on, toggle}) {
+                return (
+                    <Switch
+                        on={on}
+                        onClick={toggle}
+                    />
+                );
+            }
+
             class Toggle extends React.Component {
-                static defaultProps = { onToggle: () => {}}
+                static Button = ToggleButton;
+
+                static defaultProps = { onToggle: () => {}};
                 state = { on: false };
 
                 toggle() {
@@ -101,11 +112,17 @@
                 }
 
                 render () {
-                    const { on } = this.state;
+                    const children = React.Children.map(
+                        this.props.children,
+                        child => React.cloneElement(child, {
+                            on: this.state.on,
+                            toggle: this.toggle.bind(this)
+                        })
+                    );
 
                     return (
                         <div>
-                            <Switch on={on} onClick={this.toggle.bind(this)}/>
+                            {children}
                         </div>
                     )
                 }
@@ -138,7 +155,9 @@
                     textAlign: 'center',
                 }}>
                     'Advanced React Component Patterns' Course Presents:
-                    <Toggle onToggle={(on) => console.log(`Toggle has been switched to ${on}`)}/>
+                    <Toggle onToggle={(on) => console.log(`Toggle has been switched to ${on}`)}>
+                        <Toggle.Button />
+                    </Toggle>
                 </div>;
 
             ReactDOM.render(
