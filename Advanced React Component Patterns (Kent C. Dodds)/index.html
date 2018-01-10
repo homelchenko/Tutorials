@@ -92,21 +92,6 @@
         <script type="text/babel">
             const TOGGLE_CONTEXT = '__TOGGLE_COMPONENT__';
 
-            function ToggleButton(props, context) {
-                const { on, toggle } = context[TOGGLE_CONTEXT];
-
-                return (
-                    <Switch
-                        on={on}
-                        onClick={toggle}
-                    />
-                );
-            }
-
-            ToggleButton.contextTypes = {
-                [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
-            };
-
             function withToggle(Component) {
                 function Wrapper(props, context) {
                     const toggleContext = context[TOGGLE_CONTEXT];
@@ -122,6 +107,15 @@
 
                 return Wrapper;
             }
+
+            const ToggleButton = withToggle(({ on, toggle }) => {
+                return (
+                    <Switch
+                        on={on}
+                        onClick={toggle}
+                    />
+                );
+            });
 
             const ToggleOff = withToggle(({ children, on }) => {
                 return (
