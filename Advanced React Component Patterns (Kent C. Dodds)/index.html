@@ -97,7 +97,7 @@
                     const toggleContext = context[TOGGLE_CONTEXT];
 
                     return (
-                        <Component {...toggleContext} {...props} />
+                        <Component toggle={toggleContext} {...props} />
                     );
                 }
 
@@ -108,7 +108,7 @@
                 return Wrapper;
             }
 
-            const ToggleButton = withToggle(({ on, toggle }) => {
+            const ToggleButton = withToggle(({toggle: { on, toggle }}) => {
                 return (
                     <Switch
                         on={on}
@@ -117,13 +117,13 @@
                 );
             });
 
-            const ToggleOff = withToggle(({ children, on }) => {
+            const ToggleOff = withToggle(({toggle: { on, toggle }, children }) => {
                 return (
                     on ? null : children
                 );
             });
 
-            const ToggleOn = withToggle(({ children, on }) => {
+            const ToggleOn = withToggle(({toggle: { on, toggle }, children }) => {
                 return (
                     on ? children : null
                 );
@@ -184,11 +184,11 @@
                 )
             }
 
-            const MyEventComponent = withToggle(({on, event}) => {
+            const MyEventComponent = withToggle(({on, event, toggle}) => {
                 const props = {[event]: on};
 
                 return (
-                    on ?
+                    toggle.on ?
                         <button {...props}>
                             The '{event}'' event
                         </button>
