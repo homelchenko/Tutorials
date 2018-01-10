@@ -184,15 +184,17 @@
                 )
             }
 
-            function MyEventComponent({on, event}) {
+            const MyEventComponent = withToggle(({on, event}) => {
                 const props = {[event]: on};
 
                 return (
-                    <button {...props}>
-                        The '{event}'' event
-                    </button>
+                    on ?
+                        <button {...props}>
+                            The '{event}'' event
+                        </button>
+                    : null
                 );
-            }
+            });
 
             var App = () =>
                 <div style={{
