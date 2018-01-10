@@ -107,18 +107,6 @@
                 [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
             };
 
-            function ToggleOn({ children }, context) {
-                const { on } = context[TOGGLE_CONTEXT];
-
-                return (
-                    on ? children : null
-                );
-            }
-
-            ToggleOn.contextTypes = {
-                [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
-            };
-
             function withToggle(Component) {
                 function Wrapper(props, context) {
                     const toggleContext = context[TOGGLE_CONTEXT];
@@ -135,9 +123,15 @@
                 return Wrapper;
             }
 
-            const ToggleOff = withToggle(({children, on}) => {
+            const ToggleOff = withToggle(({ children, on }) => {
                 return (
                     on ? null : children
+                );
+            });
+
+            const ToggleOn = withToggle(({ children, on }) => {
+                return (
+                    on ? children : null
                 );
             });
 
