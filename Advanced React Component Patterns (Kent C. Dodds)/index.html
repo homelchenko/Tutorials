@@ -184,6 +184,16 @@
                 )
             }
 
+            function MyEventComponent({on, event}) {
+                const props = {[event]: on};
+
+                return (
+                    <button {...props}>
+                        The '{event}'' event
+                    </button>
+                );
+            }
+
             var App = () =>
                 <div style={{
                     marginTop: 40,
@@ -203,6 +213,7 @@
                         <div>
                             <Toggle.Off>Toggle is OFF</Toggle.Off>
                         </div>
+                        <MyEventComponent event="onClick" on={(event) => console.log(`Event '${event.type}' happened`)} />
                     </Toggle>
                 </div>;
 
