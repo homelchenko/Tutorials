@@ -117,11 +117,11 @@
                 );
             };
 
-            const ToggleOff = withToggle(({toggle: { on, toggle }, children }) => {
+            const ToggleOff = ({toggle: { on, toggle }, children }) => {
                 return (
                     on ? null : children
                 );
-            });
+            };
 
             const ToggleOn = ({toggle: { on, toggle }, children }) => {
                 return (
@@ -132,7 +132,7 @@
             class Toggle extends React.Component {
                 static Button = withToggle(ToggleButton);
                 static On = withToggle(ToggleOn);
-                static Off = ToggleOff;
+                static Off = withToggle(ToggleOff);
 
                 static childContextTypes = {
                     [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
