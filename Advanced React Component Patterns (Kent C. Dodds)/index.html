@@ -123,15 +123,15 @@
                 );
             });
 
-            const ToggleOn = withToggle(({toggle: { on, toggle }, children }) => {
+            const ToggleOn = ({toggle: { on, toggle }, children }) => {
                 return (
                     on ? children : null
                 );
-            });
+            };
 
             class Toggle extends React.Component {
                 static Button = ToggleButton;
-                static On = ToggleOn;
+                static On = withToggle(ToggleOn);
                 static Off = ToggleOff;
 
                 static childContextTypes = {
