@@ -108,14 +108,14 @@
                 return Wrapper;
             }
 
-            const ToggleButton = withToggle(({toggle: { on, toggle }}) => {
+            const ToggleButton = ({toggle: { on, toggle }}) => {
                 return (
                     <Switch
                         on={on}
                         onClick={toggle}
                     />
                 );
-            });
+            };
 
             const ToggleOff = withToggle(({toggle: { on, toggle }, children }) => {
                 return (
@@ -130,7 +130,7 @@
             };
 
             class Toggle extends React.Component {
-                static Button = ToggleButton;
+                static Button = withToggle(ToggleButton);
                 static On = withToggle(ToggleOn);
                 static Off = ToggleOff;
 
