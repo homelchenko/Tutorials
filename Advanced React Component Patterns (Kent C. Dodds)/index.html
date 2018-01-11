@@ -184,6 +184,22 @@
                 )
             }
 
+            class MyToggle extends React.Component {
+                render() {
+                    const { toggle: { on, toggle } } = this.props;
+
+                    return (
+                        <div>
+                            <button onClick={toggle} >
+                                {on ? 'On' : 'Off' }
+                            </button>
+                        </div>
+                    );
+                }
+            }
+
+            const MyToggleWrapper = withToggle(MyToggle);
+
             const MyEventComponent = withToggle(({on, event, toggle}) => {
                 const props = {[event]: on};
 
@@ -215,6 +231,9 @@
                         <div>
                             <Toggle.Off>Toggle is OFF</Toggle.Off>
                         </div>
+                        <hr />
+                        <MyToggleWrapper />
+                        <hr />
                         <MyEventComponent event="onClick" on={(event) => console.log(`Event '${event.type}' happened`)} />
                     </Toggle>
                 </div>;
