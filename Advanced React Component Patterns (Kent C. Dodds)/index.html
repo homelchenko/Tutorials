@@ -185,12 +185,16 @@
             }
 
             class MyToggle extends React.Component {
+                focus() {
+                    this.button.focus();
+                }
+
                 render() {
                     const { toggle: { on, toggle } } = this.props;
 
                     return (
                         <div>
-                            <button onClick={toggle} >
+                            <button onClick={toggle} ref={element => this.button = element} >
                                 {on ? 'On' : 'Off' }
                             </button>
                         </div>
