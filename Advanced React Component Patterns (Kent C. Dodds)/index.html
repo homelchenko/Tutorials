@@ -216,31 +216,36 @@
                 );
             });
 
-            var App = () =>
-                <div style={{
-                    marginTop: 40,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                    textAlign: 'center',
-                }}>
-                    'Advanced React Component Patterns' Course Presents:
-                    <Toggle onToggle={(on) => console.log(`Toggle has been switched to ${on}`)}>
-                        <div>
-                            <Toggle.Button />
+            class App extends React.Component {
+                render() {
+                    return (
+                        <div style={{
+                            marginTop: 40,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            flexDirection: 'column',
+                            textAlign: 'center',
+                        }}>
+                            'Advanced React Component Patterns' Course Presents:
+                            <Toggle onToggle={(on) => console.log(`Toggle has been switched to ${on}`)}>
+                                <div>
+                                    <Toggle.Button />
+                                </div>
+                                <div>
+                                    <Toggle.On>Toggle is ON</Toggle.On>
+                                </div>
+                                <div>
+                                    <Toggle.Off>Toggle is OFF</Toggle.Off>
+                                </div>
+                                <hr />
+                                <MyToggleWrapper />
+                                <hr />
+                                <MyEventComponent event="onClick" on={(event) => console.log(`Event '${event.type}' happened`)} />
+                            </Toggle>
                         </div>
-                        <div>
-                            <Toggle.On>Toggle is ON</Toggle.On>
-                        </div>
-                        <div>
-                            <Toggle.Off>Toggle is OFF</Toggle.Off>
-                        </div>
-                        <hr />
-                        <MyToggleWrapper />
-                        <hr />
-                        <MyEventComponent event="onClick" on={(event) => console.log(`Event '${event.type}' happened`)} />
-                    </Toggle>
-                </div>;
+                    );
+                }
+            }
 
             ReactDOM.render(
                 <App />,
