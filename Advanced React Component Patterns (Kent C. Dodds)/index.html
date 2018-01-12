@@ -93,11 +93,11 @@
             const TOGGLE_CONTEXT = '__TOGGLE_COMPONENT__';
 
             function withToggle(Component) {
-                function Wrapper(props, context) {
+                function Wrapper({innerRef, ...props}, context) {
                     const toggleContext = context[TOGGLE_CONTEXT];
 
                     return (
-                        <Component toggle={toggleContext} {...props} />
+                        <Component ref={innerRef} toggle={toggleContext} {...props} />
                     );
                 }
 
@@ -227,7 +227,7 @@
                             textAlign: 'center',
                         }}>
                             'Advanced React Component Patterns' Course Presents:
-                            <Toggle onToggle={(on) => console.log(`Toggle has been switched to ${on}`)}>
+                            <Toggle onToggle={(on) => on ? this.toggle.focus() : null}>
                                 <div>
                                     <Toggle.Button />
                                 </div>
@@ -238,7 +238,7 @@
                                     <Toggle.Off>Toggle is OFF</Toggle.Off>
                                 </div>
                                 <hr />
-                                <MyToggleWrapper />
+                                <MyToggleWrapper innerRef={element => this.toggle = element}/>
                                 <hr />
                                 <MyEventComponent event="onClick" on={(event) => console.log(`Event '${event.type}' happened`)} />
                             </Toggle>
