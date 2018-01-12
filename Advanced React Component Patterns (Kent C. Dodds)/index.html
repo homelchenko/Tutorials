@@ -6,6 +6,7 @@
         <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
         <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+        <script src="https://cdn.rawgit.com/kentcdodds/ea2fdfc82f79228a6be641c78dc0e1b9/raw/0f792eb8dfb3bf993bdf50c9656f12090ed344e6/hoist-non-react-statics.umd.js"></script>
     </head>
     <body>
         <style>
@@ -107,7 +108,7 @@
 
                 Wrapper.WrappedComponent = Component;
 
-                return Wrapper;
+                return hoistNonReactStatics(Wrapper, Component);
             }
 
             const ToggleButton = ({toggle: { on, toggle }}) => {
@@ -187,6 +188,12 @@
             }
 
             class MyToggle extends React.Component {
+                static Message = withToggle(({toggle: { on }}) => {
+                    return (
+                        on ? `Warning: The button is toggled on` : null
+                    );
+                })
+
                 focus() {
                     this.button.focus();
                 }
@@ -241,6 +248,7 @@
                                 </div>
                                 <hr />
                                 <MyToggleWrapper innerRef={element => this.toggle = element}/>
+                                <MyToggleWrapper.Message />
                                 <hr />
                                 <MyEventComponent event="onClick" on={(event) => console.log(`Event '${event.type}' happened`)} />
                             </Toggle>
