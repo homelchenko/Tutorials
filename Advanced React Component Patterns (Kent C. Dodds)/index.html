@@ -5,8 +5,6 @@
         <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-        <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
-        <script src="https://cdn.rawgit.com/kentcdodds/ea2fdfc82f79228a6be641c78dc0e1b9/raw/0f792eb8dfb3bf993bdf50c9656f12090ed344e6/hoist-non-react-statics.umd.js"></script>
     </head>
     <body>
         <style>
@@ -91,67 +89,9 @@
         </script>
 
         <script type="text/babel">
-            const TOGGLE_CONTEXT = '__TOGGLE_COMPONENT__';
-
-            function withToggle(Component) {
-                function Wrapper({innerRef, ...props}, context) {
-                    const toggleContext = context[TOGGLE_CONTEXT];
-
-                    return (
-                        <Component ref={innerRef} toggle={toggleContext} {...props} />
-                    );
-                }
-
-                Wrapper.contextTypes = {
-                    [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
-                };
-
-                Wrapper.WrappedComponent = Component;
-
-                return hoistNonReactStatics(Wrapper, Component);
-            }
-
-            const ToggleButton = ({toggle: { on, toggle }}) => {
-                return (
-                    <Switch
-                        on={on}
-                        onClick={toggle}
-                    />
-                );
-            };
-
-            const ToggleOff = ({toggle: { on, toggle }, children }) => {
-                return (
-                    on ? null : children
-                );
-            };
-
-            const ToggleOn = ({toggle: { on, toggle }, children }) => {
-                return (
-                    on ? children : null
-                );
-            };
-
             class Toggle extends React.Component {
-                static Button = withToggle(ToggleButton);
-                static On = withToggle(ToggleOn);
-                static Off = withToggle(ToggleOff);
-
-                static childContextTypes = {
-                    [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
-                };
-
                 static defaultProps = { onToggle: () => {}};
                 state = { on: false };
-
-                getChildContext() {
-                    return {
-                        [TOGGLE_CONTEXT]: {
-                            on: this.state.on,
-                            toggle: this.toggle.bind(this)
-                        }
-                    }
-                }
 
                 toggle() {
                     this.setState(
@@ -163,7 +103,7 @@
                 render () {
                     return (
                         <div>
-                            {this.props.children}
+                            <Switch on={this.state.on}  onClick={this.toggle.bind(this)} />
                         </div>
                     )
                 }
@@ -187,44 +127,6 @@
                 )
             }
 
-            class MyToggle extends React.Component {
-                static Message = withToggle(({toggle: { on }}) => {
-                    return (
-                        on ? `Warning: The button is toggled on` : null
-                    );
-                })
-
-                focus() {
-                    this.button.focus();
-                }
-
-                render() {
-                    const { toggle: { on, toggle } } = this.props;
-
-                    return (
-                        <div>
-                            <button onClick={toggle} ref={element => this.button = element} >
-                                {on ? 'On' : 'Off' }
-                            </button>
-                        </div>
-                    );
-                }
-            }
-
-            const MyToggleWrapper = withToggle(MyToggle);
-
-            const MyEventComponent = withToggle(({on, event, toggle}) => {
-                const props = {[event]: on};
-
-                return (
-                    toggle.on ?
-                        <button {...props}>
-                            The '{event}'' event
-                        </button>
-                    : null
-                );
-            });
-
             class App extends React.Component {
                 render() {
                     return (
@@ -236,22 +138,7 @@
                             textAlign: 'center',
                         }}>
                             'Advanced React Component Patterns' Course Presents:
-                            <Toggle onToggle={(on) => on ? this.toggle.focus() : null}>
-                                <div>
-                                    <Toggle.Button />
-                                </div>
-                                <div>
-                                    <Toggle.On>Toggle is ON</Toggle.On>
-                                </div>
-                                <div>
-                                    <Toggle.Off>Toggle is OFF</Toggle.Off>
-                                </div>
-                                <hr />
-                                <MyToggleWrapper innerRef={element => this.toggle = element}/>
-                                <MyToggleWrapper.Message />
-                                <hr />
-                                <MyEventComponent event="onClick" on={(event) => console.log(`Event '${event.type}' happened`)} />
-                            </Toggle>
+                            <Toggle onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)} />
                         </div>
                     );
                 }
