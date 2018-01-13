@@ -123,7 +123,6 @@
                         />
                         <button
                             className={`toggle-btn ${on ? 'toggle-btn-on' : 'toggleBtn-off'}`}
-                            aria-expanded={on}
                             {...props}
                         />
                     </div>
@@ -145,9 +144,16 @@
                                 onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
                                 render = {({on, toggle}) => (
                                     <div>
-                                        <Switch on={on}  onClick={toggle} />
+                                        <Switch
+                                            on={on}
+                                            aria-expanded={on}
+                                            onClick={toggle}
+                                        />
                                         <hr />
-                                        <button onClick={toggle}>
+                                        <button
+                                            aria-expanded={on}
+                                            onClick={toggle}
+                                        >
                                             {on ? 'On' : 'Off'}
                                         </button>
                                     </div>
