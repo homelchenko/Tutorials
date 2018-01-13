@@ -100,10 +100,19 @@
                     );
                 }
 
+                renderSwitch({on, toggle}) {
+                    return (
+                        <Switch on={on}  onClick={toggle} />
+                    );
+                }
+
                 render () {
                     return (
                         <div>
-                            <Switch on={this.state.on}  onClick={this.toggle.bind(this)} />
+                            {this.renderSwitch({
+                                on: this.state.on,
+                                toggle: this.toggle.bind(this),
+                            })}
                         </div>
                     )
                 }
