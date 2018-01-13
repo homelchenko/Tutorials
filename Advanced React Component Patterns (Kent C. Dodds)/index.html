@@ -112,12 +112,6 @@
                 }
             }
 
-            function renderSwitch({on, toggle}) {
-                return (
-                    <Switch on={on}  onClick={toggle} />
-                );
-            }
-
             function Switch({on, ...props}) {
                 const { className } = props;
 
@@ -149,7 +143,11 @@
                             'Advanced React Component Patterns' Course Presents:
                             <Toggle
                                 onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
-                                render = {renderSwitch}
+                                render = {({on, toggle}) => {
+                                    return (
+                                        <Switch on={on}  onClick={toggle} />
+                                    );
+                                }}
                             />
                         </div>
                     );
