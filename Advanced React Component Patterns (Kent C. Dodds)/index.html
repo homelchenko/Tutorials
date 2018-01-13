@@ -106,6 +106,10 @@
                             {this.props.render({
                                 on: this.state.on,
                                 toggle: this.toggle.bind(this),
+                                togglerProps: {
+                                    'aria-expanded': this.state.on,
+                                    onClick: this.toggle.bind(this),
+                                }
                             })}
                         </div>
                     )
@@ -142,17 +146,15 @@
                             'Advanced React Component Patterns' Course Presents:
                             <Toggle
                                 onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
-                                render = {({on, toggle}) => (
+                                render = {({on, toggle, togglerProps}) => (
                                     <div>
                                         <Switch
                                             on={on}
-                                            aria-expanded={on}
-                                            onClick={toggle}
+                                            {...togglerProps}
                                         />
                                         <hr />
                                         <button
-                                            aria-expanded={on}
-                                            onClick={toggle}
+                                            {...togglerProps}
                                         >
                                             {on ? 'On' : 'Off'}
                                         </button>
