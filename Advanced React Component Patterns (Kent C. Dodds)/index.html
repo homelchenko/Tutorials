@@ -103,7 +103,7 @@
                 render () {
                     return (
                         <div>
-                            {this.props.renderSwitch({
+                            {this.props.render({
                                 on: this.state.on,
                                 toggle: this.toggle.bind(this),
                             })}
@@ -149,7 +149,7 @@
                             'Advanced React Component Patterns' Course Presents:
                             <Toggle
                                 onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
-                                renderSwitch = {renderSwitch}
+                                render = {renderSwitch}
                             />
                         </div>
                     );
