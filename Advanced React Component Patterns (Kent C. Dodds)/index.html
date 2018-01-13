@@ -144,7 +144,10 @@
                             <Toggle
                                 onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
                                 render = {({on, toggle}) => (
-                                    <Switch on={on}  onClick={toggle} />
+                                    <div>
+                                        <Switch on={on}  onClick={toggle} />
+                                        <div>{on ? 'ON' : 'OFF'}</div>
+                                    </div>
                                 )}
                             />
                         </div>
