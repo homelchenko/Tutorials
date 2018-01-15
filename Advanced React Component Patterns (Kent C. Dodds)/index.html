@@ -92,8 +92,12 @@
             const compose = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
 
             class Toggle extends React.Component {
-                static defaultProps = { onToggle: () => {}};
-                state = { on: false };
+                static defaultProps = {
+                    defaultOn: false,
+                    onToggle: () => {},
+                };
+
+                state = { on: this.props.defaultOn };
 
                 toggle() {
                     this.setState(
@@ -158,6 +162,7 @@
                         }}>
                             'Advanced React Component Patterns' Course Presents:
                             <Toggle
+                                defaultOn={true}
                                 onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
                                 render = {({on, toggle, getTogglerProps}) => (
                                     <div>
