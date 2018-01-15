@@ -89,6 +89,8 @@
         </script>
 
         <script type="text/babel">
+            const compose = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args));
+
             class Toggle extends React.Component {
                 static defaultProps = { onToggle: () => {}};
                 state = { on: false };
@@ -106,10 +108,10 @@
                 } = {}) {
                     return {
                         'aria-expanded': this.state.on,
-                        onClick: () => {
-                            onClick && onClick();
-                            this.toggle();
-                        },
+                        onClick: compose(
+                            onClick,
+                            this.toggle.bind(this)
+                        ),
                         ...props
                     }
                 }
