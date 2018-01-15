@@ -100,10 +100,14 @@
                     );
                 }
 
-                getTogglerProps() {
+                getTogglerProps({
+                    onClick,
+                    ...props
+                } = {}) {
                     return {
                         'aria-expanded': this.state.on,
                         onClick: this.toggle.bind(this),
+                        ...props
                     }
                 }
 
