@@ -106,7 +106,10 @@
                 } = {}) {
                     return {
                         'aria-expanded': this.state.on,
-                        onClick: this.toggle.bind(this),
+                        onClick: () => {
+                            onClick && onClick();
+                            this.toggle();
+                        },
                         ...props
                     }
                 }
