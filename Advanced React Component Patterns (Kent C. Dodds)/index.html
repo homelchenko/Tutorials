@@ -98,11 +98,13 @@
                     onReset: () => {},
                 };
 
-                state = { on: this.props.defaultOn };
+                initialState = { on: this.props.defaultOn };
+
+                state = this.initialState;
 
                 reset() {
                     this.setState(
-                        (state) => ({on: this.props.defaultOn}),
+                        this.initialState,
                         () => this.props.onReset()
                     );
                 }
