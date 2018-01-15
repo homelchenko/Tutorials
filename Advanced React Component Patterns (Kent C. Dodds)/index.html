@@ -100,16 +100,20 @@
                     );
                 }
 
+                getTogglerProps() {
+                    return {
+                        'aria-expanded': this.state.on,
+                        onClick: this.toggle.bind(this),
+                    }
+                }
+
                 render () {
                     return (
                         <div>
                             {this.props.render({
                                 on: this.state.on,
                                 toggle: this.toggle.bind(this),
-                                togglerProps: {
-                                    'aria-expanded': this.state.on,
-                                    onClick: this.toggle.bind(this),
-                                }
+                                getTogglerProps: this.getTogglerProps.bind(this),
                             })}
                         </div>
                     )
@@ -146,15 +150,17 @@
                             'Advanced React Component Patterns' Course Presents:
                             <Toggle
                                 onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
-                                render = {({on, toggle, togglerProps}) => (
+                                render = {({on, toggle, getTogglerProps}) => (
                                     <div>
                                         <Switch
                                             on={on}
-                                            {...togglerProps}
+                                            {...getTogglerProps()}
                                         />
                                         <hr />
                                         <button
-                                            {...togglerProps}
+                                            {...getTogglerProps({
+                                                onClick: () => console.log(`Button is clicked!`)
+                                            })}
                                         >
                                             {on ? 'On' : 'Off'}
                                         </button>
