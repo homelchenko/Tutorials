@@ -99,6 +99,10 @@
 
                 state = { on: this.props.defaultOn };
 
+                reset() {
+                    this.setState((state) => ({on: this.props.defaultOn}));
+                }
+
                 toggle() {
                     this.setState(
                         ({ on }) => ({ on: !on }),
@@ -126,6 +130,7 @@
                             {this.props.render({
                                 on: this.state.on,
                                 toggle: this.toggle.bind(this),
+                                reset: this.reset.bind(this),
                                 getTogglerProps: this.getTogglerProps.bind(this),
                             })}
                         </div>
@@ -164,12 +169,16 @@
                             <Toggle
                                 defaultOn={true}
                                 onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
-                                render = {({on, toggle, getTogglerProps}) => (
+                                render = {({on, toggle, reset, getTogglerProps}) => (
                                     <div>
                                         <Switch
                                             on={on}
                                             {...getTogglerProps()}
                                         />
+                                        <hr />
+                                        <button onClick={() => reset()}>
+                                            Reset
+                                        </button>
                                         <hr />
                                         <button
                                             {...getTogglerProps({
