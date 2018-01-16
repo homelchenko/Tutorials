@@ -170,6 +170,10 @@
                     this.setState(({ count }) => ({count: count + 1}) );
                 }
 
+                handleOnReset() {
+                    this.setState(this.initialState);
+                }
+
                 isTooManyToggles() {
                     return this.state.count > 4;
                 }
@@ -189,7 +193,7 @@
                             <Toggle
                                 defaultOn
                                 onToggle={this.handleOnToggle.bind(this)}
-                                onReset={() => console.log(`Toggle has been reset`)}
+                                onReset={this.handleOnReset.bind(this)}
                                 render = {({on, toggle, reset, getTogglerProps}) => (
                                     <div>
                                         <div>
