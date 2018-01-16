@@ -167,6 +167,10 @@
                 state = this.initialState;
 
                 handleOnToggle() {
+                    if (this.isTooManyToggles()) {
+                        return;
+                    }
+
                     this.setState(({ on, timesToggled }) => ({
                         on: !on,
                         timesToggled: timesToggled + 1,
