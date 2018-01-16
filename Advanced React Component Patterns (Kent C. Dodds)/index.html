@@ -162,7 +162,18 @@
             }
 
             class App extends React.Component {
+                initialState = { count: 0 };
+
+                state = this.initialState;
+
+                handleOnToggle() {
+                    console.log(this.state);
+                    this.setState(({ count }) => ({count: count + 1}) );
+                }
+
                 render() {
+                    const { count } = this.state;
+
                     return (
                         <div style={{
                             marginTop: 40,
@@ -174,10 +185,13 @@
                             'Advanced React Component Patterns' Course Presents:
                             <Toggle
                                 defaultOn
-                                onToggle={(on) => console.log(`Toggle has been switched ${on ? 'on' : 'off'}`)}
+                                onToggle={this.handleOnToggle.bind(this)}
                                 onReset={() => console.log(`Toggle has been reset`)}
                                 render = {({on, toggle, reset, getTogglerProps}) => (
                                     <div>
+                                        <div>
+                                            Toggled {count} time(s)
+                                        </div>
                                         <Switch
                                             on={on}
                                             {...getTogglerProps()}
