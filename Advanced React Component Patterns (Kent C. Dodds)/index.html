@@ -134,7 +134,7 @@
                     return (
                         <div>
                             {this.props.render({
-                                on: this.state.on,
+                                on: this.props.on !== undefined ? this.props.on : this.state.on,
                                 toggle: this.toggle.bind(this),
                                 reset: this.reset.bind(this),
                                 getTogglerProps: this.getTogglerProps.bind(this),
@@ -191,7 +191,7 @@
                         }}>
                             'Advanced React Component Patterns' Course Presents:
                             <Toggle
-                                defaultOn
+                                on={true}
                                 onToggle={this.handleOnToggle.bind(this)}
                                 onReset={this.handleOnReset.bind(this)}
                                 render = {({on, toggle, reset, getTogglerProps}) => (
