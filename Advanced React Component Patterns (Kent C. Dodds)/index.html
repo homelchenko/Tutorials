@@ -167,8 +167,11 @@
                 state = this.initialState;
 
                 handleOnToggle() {
-                    console.log(this.state);
                     this.setState(({ count }) => ({count: count + 1}) );
+                }
+
+                isTooManyToggles() {
+                    return this.state.count > 4;
                 }
 
                 render() {
@@ -201,6 +204,14 @@
                                             Reset
                                         </button>
                                         <hr />
+                                        {
+                                            this.isTooManyToggles() ?
+                                            <div>
+                                                <span>You've toggled to many times. Please reset to proceed</span>
+                                                <hr />
+                                            </div>
+                                            : null
+                                        }
                                         <button
                                             {...getTogglerProps({
                                                 onClick: () => console.log(`Button is clicked!`)
