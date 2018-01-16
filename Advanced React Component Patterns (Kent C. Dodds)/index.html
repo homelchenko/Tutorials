@@ -103,17 +103,25 @@
                 state = this.initialState;
 
                 reset() {
-                    this.setState(
-                        this.initialState,
-                        () => this.props.onReset()
-                    );
+                    if (this.isControlled()) {
+                        this.props.onReset();
+                    } else {
+                        this.setState(
+                            this.initialState,
+                            () => this.props.onReset()
+                        );
+                    }
                 }
 
                 toggle() {
-                    this.setState(
-                        ({ on }) => ({ on: !on }),
-                        () => this.props.onToggle(this.state.on)
-                    );
+                    if (this.isControlled()) {
+                        this.props.onToggle(this.state.on)
+                    } else {
+                        this.setState(
+                            ({ on }) => ({ on: !on }),
+                            () => this.props.onToggle(this.state.on)
+                        );
+                    }
                 }
 
                 getTogglerProps({
@@ -130,11 +138,15 @@
                     }
                 }
 
+                isControlled() {
+                    return this.props.on !== undefined;
+                }
+
                 render () {
                     return (
                         <div>
                             {this.props.render({
-                                on: this.props.on !== undefined ? this.props.on : this.state.on,
+                                on: this.isControlled() ? this.props.on : this.state.on,
                                 toggle: this.toggle.bind(this),
                                 reset: this.reset.bind(this),
                                 getTogglerProps: this.getTogglerProps.bind(this),
