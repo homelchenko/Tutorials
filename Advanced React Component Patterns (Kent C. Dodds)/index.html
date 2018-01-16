@@ -162,12 +162,15 @@
             }
 
             class App extends React.Component {
-                initialState = { timesToggled: 0 };
+                initialState = { timesToggled: 0, on: false };
 
                 state = this.initialState;
 
                 handleOnToggle() {
-                    this.setState(({ timesToggled }) => ({timesToggled: timesToggled + 1}) );
+                    this.setState(({ on, timesToggled }) => ({
+                        on: !on,
+                        timesToggled: timesToggled + 1,
+                    }));
                 }
 
                 handleOnReset() {
@@ -191,7 +194,7 @@
                         }}>
                             'Advanced React Component Patterns' Course Presents:
                             <Toggle
-                                on={true}
+                                on={this.state.on}
                                 onToggle={this.handleOnToggle.bind(this)}
                                 onReset={this.handleOnReset.bind(this)}
                                 render = {({on, toggle, reset, getTogglerProps}) => (
