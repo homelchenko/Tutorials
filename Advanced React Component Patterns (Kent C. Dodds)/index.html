@@ -173,6 +173,16 @@
                 )
             }
 
+            class Header extends React.Component {
+                render() {
+                    return (
+                        <div>
+                            'Advanced React Component Patterns' Course Presents:
+                        </div>
+                    );
+                }
+            }
+
             class App extends React.Component {
                 initialState = { timesToggled: 0, on: false };
 
@@ -208,7 +218,7 @@
                             flexDirection: 'column',
                             textAlign: 'center',
                         }}>
-                            'Advanced React Component Patterns' Course Presents:
+                            <Header />
                             <Toggle
                                 on={this.state.on}
                                 onToggle={this.handleOnToggle.bind(this)}
