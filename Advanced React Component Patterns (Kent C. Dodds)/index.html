@@ -156,6 +156,16 @@
                 }
             }
 
+            class Header extends React.Component {
+                render() {
+                    return (
+                        <div>
+                            'Advanced React Component Patterns' Course Presents:
+                        </div>
+                    );
+                }
+            }
+
             function Switch({on, ...props}) {
                 const { className } = props;
 
@@ -173,42 +183,89 @@
                 )
             }
 
-            class Header extends React.Component {
+            class MeasuredSwitch extends React.Component {
+                static defaultProps = {
+                    onCountIncremented: () => {}
+                }
+
+                initialState = {
+                    switchedCount: 0
+                }
+
+                state = this.initialState;
+
+                increment() {
+                    this.setState(
+                        ({ switchedCount }) => ({
+                            switchedCount: switchedCount + 1,
+                        }),
+                        () => this.props.onCountIncremented()
+                    );
+                }
+
+                get SwitchedCount() {
+                    return this.state.switchedCount;
+                }
+
+                reset() {
+                    this.setState(this.initialState);
+                }
+
                 render() {
+                    const { switchedCount } = this.state;
+                    const { on, getTogglerProps } = this.props;
+
                     return (
                         <div>
-                            'Advanced React Component Patterns' Course Presents:
+                            Toggled {switchedCount} time(s)
+                            <Switch
+                                on={on}
+                                {...getTogglerProps()}
+                            />
                         </div>
                     );
                 }
             }
 
             class App extends React.Component {
-                initialState = { timesToggled: 0, on: false };
+                initialState = {
+                    on: false,
+                    isOverclicked: false,
+                };
 
                 state = this.initialState;
 
                 handleOnToggle() {
-                    if (this.isTooManyToggles()) {
+                    const { isOverclicked } = this.state;
+
+                    if (isOverclicked) {
                         return;
                     }
 
-                    this.setState(({ on, timesToggled }) => ({
-                        on: !on,
-                        timesToggled: timesToggled + 1,
-                    }));
+                    this.switch.increment();
+                }
+
+                handleCountIncremented() {
+                    this.setState(
+                        ({ on }) => ({
+                             on: !on,
+                             isOverclicked: this.isTooManyToggles(this.switch.SwitchedCount),
+                        })
+                    );
+                }
+
+                isTooManyToggles(timesToggled) {
+                    console.log(timesToggled);
+                    return timesToggled > 4;
                 }
 
                 handleOnReset() {
                     this.setState(this.initialState);
-                }
-
-                isTooManyToggles() {
-                    return this.state.timesToggled > 4;
+                    this.switch.reset();
                 }
 
                 render() {
-                    const { timesToggled: count } = this.state;
+                    const { isOverclicked } = this.state;
 
                     return (
                         <div style={{
@@ -225,12 +282,11 @@
                                 onReset={this.handleOnReset.bind(this)}
                                 render = {({on, toggle, reset, getTogglerProps}) => (
                                     <div>
-                                        <div>
-                                            Toggled {count} time(s)
-                                        </div>
-                                        <Switch
+                                        <MeasuredSwitch
                                             on={on}
-                                            {...getTogglerProps()}
+                                            getTogglerProps={getTogglerProps}
+                                            onCountIncremented={this.handleCountIncremented.bind(this)}
+                                            ref={element => this.switch = element}
                                         />
                                         <hr />
                                         <button onClick={() => reset()}>
@@ -238,7 +294,7 @@
                                         </button>
                                         <hr />
                                         {
-                                            this.isTooManyToggles() ?
+                                            isOverclicked ?
                                             <div>
                                                 <span>You've toggled to many times. Please reset to proceed</span>
                                                 <hr />
