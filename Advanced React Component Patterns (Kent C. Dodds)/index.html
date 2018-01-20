@@ -5,6 +5,7 @@
         <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+        <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
     </head>
     <body>
         <style>
@@ -156,6 +157,49 @@
                 }
             }
 
+            class ToggleProvider extends React.Component {
+                static TOGGLE_CONTEXT_NAME = '___TOGGLE___CONTEXT___';
+
+                static Renderer  = class extends React.Component {
+                    static childContextTypes = {
+                        [ToggleProvider.TOGGLE_CONTEXT_NAME]: PropTypes.object.isRequired,
+                    }
+
+                    getChildContext() {
+                        return {
+                            [ToggleProvider.TOGGLE_CONTEXT_NAME]: this.props.toggle,
+                        };
+                    }
+
+                    render() {
+                        return this.props.children;
+                    }
+                }
+
+                render() {
+                    const { children, innerRef, ...remainingProps } = this.props;
+
+                    return (
+                        <Toggle {...remainingProps} ref={innerRef}  render={toggle => {
+                            return (
+                                <div>
+                                    <div>Message</div>
+                                    <ToggleProvider.Renderer toggle={toggle} children={children} />
+                                </div>
+                             );
+                        }}/>
+                    );
+                }
+            }
+
+            function ConnectedToggle(props, context) {
+                return props.render(context[ToggleProvider.TOGGLE_CONTEXT_NAME]);
+            }
+
+            ConnectedToggle.contextTypes = {
+                [ToggleProvider.TOGGLE_CONTEXT_NAME]: PropTypes.object.isRequired,
+            }
+
             class Header extends React.Component {
                 render() {
                     return (
@@ -213,14 +257,15 @@
 
                 render() {
                     const { switchedCount } = this.state;
-                    const { on, getTogglerProps } = this.props;
 
                     return (
                         <div>
                             Toggled {switchedCount} time(s)
-                            <Switch
-                                on={on}
-                                {...getTogglerProps()}
+                            <ConnectedToggle render={toggle => (
+                                <Switch
+                                    on={toggle.on}
+                                    {...toggle.getTogglerProps()}
+                                />)}
                             />
                         </div>
                     );
@@ -264,6 +309,10 @@
                     this.switch.reset();
                 }
 
+                reset() {
+                    this.toggle.reset();
+                }
+
                 render() {
                     const { isOverclicked } = this.state;
 
@@ -276,41 +325,43 @@
                             textAlign: 'center',
                         }}>
                             <Header />
-                            <Toggle
+                            <ToggleProvider
                                 on={this.state.on}
                                 onToggle={this.handleOnToggle.bind(this)}
                                 onReset={this.handleOnReset.bind(this)}
-                                render = {({on, toggle, reset, getTogglerProps}) => (
-                                    <div>
-                                        <MeasuredSwitch
-                                            on={on}
-                                            getTogglerProps={getTogglerProps}
-                                            onCountIncremented={this.handleCountIncremented.bind(this)}
-                                            ref={element => this.switch = element}
-                                        />
-                                        <hr />
-                                        <button onClick={() => reset()}>
-                                            Reset
-                                        </button>
-                                        <hr />
-                                        {
-                                            isOverclicked ?
-                                            <div>
-                                                <span>You've toggled to many times. Please reset to proceed</span>
-                                                <hr />
-                                            </div>
-                                            : null
-                                        }
-                                        <button
-                                            {...getTogglerProps({
-                                                onClick: () => console.log(`Button is clicked!`)
-                                            })}
-                                        >
-                                            {on ? 'On' : 'Off'}
-                                        </button>
-                                    </div>
-                                )}
-                            />
+                                innerRef={element => this.toggle = element }
+                            >
+                                <div>
+                                    <MeasuredSwitch
+                                        onCountIncremented={this.handleCountIncremented.bind(this)}
+                                        ref={element => this.switch = element}
+                                    />
+                                    <hr />
+                                    <button onClick={() => this.reset()}>
+                                        Reset
+                                    </button>
+                                    <hr />
+                                    {
+                                        isOverclicked ?
+                                        <div>
+                                            <span>You've toggled to many times. Please reset to proceed</span>
+                                            <hr />
+                                        </div>
+                                        : null
+                                    }
+                                    <ConnectedToggle
+                                        render={toggle => (
+                                            <button
+                                                {...toggle.getTogglerProps({
+                                                    onClick: () => console.log(`Button is clicked!`)
+                                                })}
+                                            >
+                                                {toggle.on ? 'On' : 'Off'}
+                                            </button>
+                                        )}
+                                    />
+                                </div>
+                            </ToggleProvider>
                         </div>
                     );
                 }
