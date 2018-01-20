@@ -272,6 +272,20 @@
                 }
             }
 
+            function TogglerButton(props) {
+                return (
+                    <ConnectedToggle render={toggle => (
+                        <button
+                            {...toggle.getTogglerProps({
+                                onClick: () => console.log(`Button is clicked!`)
+                            })}
+                        >
+                            {toggle.on ? 'On' : 'Off'}
+                        </button>
+                    )} />
+                )
+            }
+
             class App extends React.Component {
                 initialState = {
                     on: false,
@@ -349,17 +363,7 @@
                                         </div>
                                         : null
                                     }
-                                    <ConnectedToggle
-                                        render={toggle => (
-                                            <button
-                                                {...toggle.getTogglerProps({
-                                                    onClick: () => console.log(`Button is clicked!`)
-                                                })}
-                                            >
-                                                {toggle.on ? 'On' : 'Off'}
-                                            </button>
-                                        )}
-                                    />
+                                    <TogglerButton />
                                 </div>
                             </ToggleProvider>
                         </div>
