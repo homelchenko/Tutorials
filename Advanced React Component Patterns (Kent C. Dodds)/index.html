@@ -180,14 +180,12 @@
                     const { children, innerRef, ...remainingProps } = this.props;
 
                     return (
-                        <Toggle {...remainingProps} ref={innerRef}  render={toggle => {
-                            return (
-                                <div>
-                                    <div>Message</div>
-                                    <ToggleProvider.Renderer toggle={toggle} children={children} />
-                                </div>
-                             );
-                        }}/>
+                        <Toggle {...remainingProps} ref={innerRef} render={toggle => (
+                            <div>
+                                <div>Message</div>
+                                <ToggleProvider.Renderer toggle={toggle} children={children} />
+                            </div>
+                        )} />
                     );
                 }
             }
