@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "Page Styling",
+    "description": "Set the style of any webpage",
+
+    "browser_action": {
+        "default_title": "Page Styling",
+        "default_popup": "popup.html"       
+    },
+
+    "version": "1",
+    "permissions": [
+        "http://*/*",
+        "https://*/*"
+    ]
+}
