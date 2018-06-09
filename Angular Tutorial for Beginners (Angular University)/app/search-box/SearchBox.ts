@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-declare const module;
+declare const module: { id: any };
 
 @Component({
     selector: 'search-box',
@@ -12,7 +12,7 @@ export class SearchBox {
     @Input('placeholder')
     text = 'Search'
 
-    clear(input) {
+    clear(input: any) {
         input.value = '';
     }
 }
