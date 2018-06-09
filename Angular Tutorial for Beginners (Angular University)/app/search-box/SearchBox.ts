@@ -6,14 +6,7 @@ declare const module;
     selector: 'search-box',
     moduleId: module.id,
     templateUrl: 'search-box.component.html',
-    styles: [`
-        .btn-clear {
-            background: #DE363F;
-            color: white;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-    `]
+    styleUrls: ['search-box.component.css']
 })
 export class SearchBox {
     @Input('placeholder')
