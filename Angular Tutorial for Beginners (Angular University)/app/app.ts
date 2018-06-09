@@ -1,7 +1,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
-import { SearchBox } from './SearchBox';
+import { SearchBox } from './search-box/SearchBox';
 
 @Component({
     selector: 'App',
