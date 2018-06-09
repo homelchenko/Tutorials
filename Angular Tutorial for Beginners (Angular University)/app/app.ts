@@ -1,16 +1,19 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
+import { SearchBox } from './SearchBox';
 
 @Component({
     selector: 'App',
-    template: 'Hello Ng2 World!'
+    template: `
+        <search-box></search-box>
+    `
 })
 class App {
 }
 
 @NgModule({
-    declarations: [App],
+    declarations: [App, SearchBox],
     imports: [BrowserModule],
     bootstrap: [App]
 })
