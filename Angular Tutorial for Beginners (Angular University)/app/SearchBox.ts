@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'search-box',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
     `
 })
 export class SearchBox {
+    @Input('placeholder')
     text = 'Search'
 }
