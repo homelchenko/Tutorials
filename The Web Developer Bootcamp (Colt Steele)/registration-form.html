@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+    </head>
+    <body>
+        <h1>Register</h1>
+        <form>
+            <p>
+                <label>
+                    First Name:
+                    <input name="first-name" type="text" placeholder="John" >
+                </label>
+                <label>
+                    Last Name:
+                    <input name="last-name" type="text" placeholder="Smith" >
+                </label>
+            </p>
+            <p>
+                <label>
+                    Male
+                    <input name="sex" type="radio" value="male" >
+                </label>
+                <label>
+                    Female
+                    <input name="sex" type="radio" value="female" >
+                </label>
+                <label>
+                    Other
+                    <input name="sex" type="radio" value="other" checked >
+                </label>
+            </p>
+            <p>
+                <label>
+                    Email:
+                    <input type="email" name="email" placeholder="your email" >
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" placeholder="your password" >
+                </label>
+            </p>
+            <p>
+                <label>
+                    Birthday:
+                    <select name="month" >
+                        <option value="january">January</option>
+                        <option value="february">February</option>
+                        <option value="march">March</option>
+                    </select>
+                    <select name="day" >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <select name="year" >
+                        <option value="1983">1983</option>
+                        <option value="1984">1984</option>
+                        <option value="1985">1985</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <label>
+                    I agree to the terms and conditions
+                    <input type="checkbox" >
+                </label>
+            </p>
+
+            <input type="submit" value="Submit" >
+        </form>
+    </body>
+</html>
