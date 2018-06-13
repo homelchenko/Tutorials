@@ -7,10 +7,15 @@ import { ColorPicker } from './color-picker/ColorPicker';
 @Component({
     selector: 'App',
     template: `
-        <color-picker initial="red"></color-picker>
+        <color-picker [color]="color" (color)="onColor($event)"></color-picker>
     `
 })
 class App {
+    color: string = "green";
+
+    onColor(color: string) {
+        this.color = color;
+    }
 }
 
 @NgModule({

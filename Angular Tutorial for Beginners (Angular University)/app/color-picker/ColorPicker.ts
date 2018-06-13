@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 import { RED, BLUE } from './Constants';
 
@@ -32,10 +32,13 @@ import { RED, BLUE } from './Constants';
     ]
 })
 export class ColorPicker {
-    @Input("initial")
+    @Input("color")
     color: string;
 
+    @Output("color")
+    colorChange: EventEmitter<string> = new EventEmitter();
+
     choose(color: string) {
-        this.color = color;
+        this.colorChange.emit(color);
     }
 }
