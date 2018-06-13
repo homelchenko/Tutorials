@@ -4,22 +4,22 @@ import { NgModule, Component } from '@angular/core';
 import { SearchBox } from './search-box/SearchBox';
 import { ColorPicker } from './color-picker/ColorPicker';
 import { ColorPreviewer } from './color-picker/ColorPreviewer';
+import { ColorSample } from './color-sample/ColorSample';
+import { ColorTextDetector } from './color-sample/ColorTextDetector';
 
 @Component({
     selector: 'App',
     template: `
-        <color-picker [color]="color" (color)="previewer.color = $event" #picker></color-picker>
+        <color-sample [color]="color" #sample ></color-sample>
 
-        <color-previewer #previewer></color-previewer>
-
-        <button (click)="picker.reset()">Reset</button>
+        <color-text-detector (color)="sample.color = $event"></color-text-detector>
     `
 })
 class App {
 }
 
 @NgModule({
-    declarations: [App, SearchBox, ColorPicker, ColorPreviewer],
+    declarations: [App, SearchBox, ColorPicker, ColorPreviewer, ColorSample, ColorTextDetector],
     imports: [BrowserModule],
     bootstrap: [App]
 })
