@@ -7,7 +7,9 @@ import { ColorPicker } from './color-picker/ColorPicker';
 @Component({
     selector: 'App',
     template: `
-        <color-picker [color]="color" (color)="onColor($event)"></color-picker>
+        <color-picker [color]="color" (color)="onColor($event)" #picker></color-picker>
+
+        <button (click)="picker.reset()">Reset</button>
     `
 })
 class App {

@@ -41,4 +41,8 @@ export class ColorPicker {
     choose(color: string) {
         this.colorChange.emit(color);
     }
+
+    reset() {
+        this.choose("black");
+    }
 }
