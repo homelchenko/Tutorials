@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
-declare const module: { id: any };
+declare const __moduleName: string;
 
 @Component({
     selector: 'search-box',
-    moduleId: module.id,
+    moduleId: __moduleName,
     templateUrl: 'search-box.component.html',
     styleUrls: ['search-box.component.css']
 })
