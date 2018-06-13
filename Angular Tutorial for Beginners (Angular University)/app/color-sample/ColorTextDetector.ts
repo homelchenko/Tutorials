@@ -5,7 +5,7 @@ const CSS_COLOR_NAMES = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure",
 @Component({
     selector: 'color-text-detector',
     template: `
-        <input type="text" (keyup)="onNewCharacter($event.target.value)" />
+        <input type="text" placeholder="Type your color here" (keyup)="onNewCharacter($event.target.value)" />
     `
 })
 export class ColorTextDetector {
