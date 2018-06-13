@@ -3,7 +3,7 @@ import { Component, Input } from "@angular/core";
 import { RED, BLUE } from './Constants';
 
 @Component({
-    selector: '<color-picker>',
+    selector: 'color-picker',
     template: `
         <div class="color-title" [ngStyle]="{'color': color}">Pick a color:</div>
 
