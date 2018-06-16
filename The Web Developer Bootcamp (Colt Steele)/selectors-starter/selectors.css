@@ -7,7 +7,9 @@ body {
 }
 
 /* Make the <h1> element #9b59b6*/
-
+h1 {
+    background: #9b59b6;
+}
 
 /* Make all <h2> elements orange */
 
