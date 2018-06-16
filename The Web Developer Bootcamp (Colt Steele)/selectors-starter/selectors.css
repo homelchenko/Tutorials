@@ -12,7 +12,9 @@ h1 {
 }
 
 /* Make all <h2> elements orange */
-
+h2 {
+    background: orange;
+}
 
 /* Make all <li> elements blue(pick your own hexadecimal blue)*/
 
