@@ -32,7 +32,9 @@ input {
 }
 
 /* Give everything with the class 'hello' a white background*/
-
+.hello {
+    background: white;
+}
 
 /* Give the element with id 'special' a 2px solid blue border(pick your own rgb blue)*/
 
