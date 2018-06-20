@@ -6,20 +6,41 @@ import { ColorPicker } from './color-picker/ColorPicker';
 import { ColorPreviewer } from './color-picker/ColorPreviewer';
 import { ColorSample } from './color-sample/ColorSample';
 import { ColorTextDetector } from './color-sample/ColorTextDetector';
+import { Collapsible } from './collapsible-directive/Collapsible';
 
 @Component({
     selector: 'App',
     template: `
-        <color-sample [color]="color" #sample ></color-sample>
+        <div collapsible>
+            Some text paragraph
+        </div>
+    `,
+    styles: [
+        `
+            body {
+                background: green;
+            }
 
-        <color-text-detector (color)="sample.color = $event"></color-text-detector>
-    `
+            div {
+                background: pink;
+                margin: 20px;
+            }
+        `
+    ]
 })
 class App {
 }
 
 @NgModule({
-    declarations: [App, SearchBox, ColorPicker, ColorPreviewer, ColorSample, ColorTextDetector],
+    declarations: [
+        App,
+        SearchBox,
+        ColorPicker,
+        ColorPreviewer,
+        ColorSample,
+        ColorTextDetector,
+        Collapsible
+    ],
     imports: [BrowserModule],
     bootstrap: [App]
 })
