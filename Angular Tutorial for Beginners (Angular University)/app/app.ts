@@ -12,18 +12,25 @@ import { Collapsible } from './collapsible-directive/Collapsible';
     selector: 'App',
     template: `
         <div collapsible>
-            Some text paragraph
+            <i class="md-icon collapsible-indicator">arrow_drop_down</i>
+            <div class="collapsible-body">
+                Some text paragraph
+            </div>
         </div>
     `,
     styles: [
         `
-            body {
-                background: green;
+            .collapsed .collapsible-indicator {
+                font-size: 30px;
+                line-height: 30px;
             }
 
-            div {
-                background: pink;
-                margin: 20px;
+            .collapsible-body {
+                padding: 0 20px 20px 20px;
+            }
+
+            .collapsed .collapsible-body {
+                display: none;
             }
         `
     ]
